@@ -17,7 +17,7 @@ NB: This is the responsive stylesheet of this theme.
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 
     .img-logo {
-        width: 165px !!important;
+        width: 165px !important;
     }
 
     .section-padding {
@@ -83,6 +83,10 @@ NB: This is the responsive stylesheet of this theme.
 
 /* Mobile Layout: 320px. */
 @media only screen and (max-width: 767px) {
+
+    .lalala {
+        padding-top: 100px;
+    }
 
     .img-logo {
         width: 100px !important;
