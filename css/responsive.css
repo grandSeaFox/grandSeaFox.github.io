@@ -15,6 +15,11 @@ NB: This is the responsive stylesheet of this theme.
 
 /* Tablet Layout: 768px. */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .img-logo {
+        width: 165px !!important;
+    }
+
     .section-padding {
         padding: 35px 0;
     }
@@ -78,6 +83,11 @@ NB: This is the responsive stylesheet of this theme.
 
 /* Mobile Layout: 320px. */
 @media only screen and (max-width: 767px) {
+
+    .img-logo {
+        width: 100px !important;
+    }
+
     .section-padding {
         padding: 30px 0;
     }
