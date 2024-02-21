@@ -94,7 +94,7 @@ $(document).ready(function () {
 			$ps = $up.find("p:not('.read-more')");
 			
 			$ps.each(function() {
-				totalHeight += $(this).outerHeight() + 10;
+				totalHeight += $(this).outerHeight() + 20;
 			});
 						
 			$up
@@ -140,24 +140,24 @@ $(document).ready(function () {
 	});
 
 	$(function() {
-		
+
 		var $p2, $el2, $ps2, $up2, totalHeight2;
 		var $orgHeight2 = $('.special-text2').height();
-		
+
 		$(".special-text2  .read-more-button2").click(function() {
-		
-					
-			totalHeight2 = 0
-		
+
+
+			totalHeight2 = 90
+
 			$el2 = $(this);
 			$p2  = $el2.parent();
 			$up2 = $p2.parent();
 			$ps2 = $up2.find("p:not('.read-more2')");
-			
+
 			$ps2.each(function() {
-				totalHeight2 += $(this).outerHeight() + 10;
+				totalHeight2 += $(this).outerHeight() - 30;
 			});
-						
+
 			$up2
 				.css({
 					"height": $up2.height(),
@@ -166,20 +166,20 @@ $(document).ready(function () {
 				.animate({
 					"height": totalHeight2
 				});
-			
+
 			// fade out read-more
 			$p2.fadeOut();
 			$('.read-less2').fadeIn();
-			
+
 			// prevent jump-down
 			return false;
-				
+
 		});
 
 		$(".special-text2 .read-less-button2").click(function() {
-		
+
 			// IE 7 doesn't even get this far. I didn't feel like dicking with it.
-		
+
 			$el2 = $(this);
 			$p2  = $el2.parent();
 			$up2 = $p2.parent();
@@ -194,16 +194,16 @@ $(document).ready(function () {
 				.animate({
 					"height": $orgHeight2
 				});
-			
+
 			// fade out read-less
 			$p2.fadeOut();
 			$('.read-more2').fadeIn();
-			
+
 			// prevent jump-down
 			return false;
-				
+
 		});
-	
+
 	});
 
 

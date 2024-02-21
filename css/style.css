@@ -1300,4 +1300,20 @@ ul.port-nav-list li a.active {
     color: #fff;
 }
 
-
+.mb {
+    &._1 {
+        margin-bottom: 8px;
+    }
+    &._2 {
+        margin-bottom: 16px;
+    }
+    &._3 {
+        margin-bottom: 24px;
+    }
+    &._4 {
+        margin-bottom: 32px;
+    }
+    &._5 {
+        margin-bottom: 40px;
+    }
+}
