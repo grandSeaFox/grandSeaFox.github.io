@@ -333,7 +333,7 @@
     text-decoration: none;
   }
   .project:first-child { border-top: 0; }
-  .project:hover h3 { color: var(--accent); }
+  a.project:hover h3 { color: var(--accent); }
   .project h3 { transition: color 0.15s ease; }
   .project p { margin-top: 0.3rem; color: var(--ink-2); font-size: var(--fs-sm); }
   .tags {
@@ -597,11 +597,12 @@
       <div class="label"><span class="idx">02</span> — Selected work</div>
       <div>
         <h2>Projects</h2>
-        <p class="small">Most of these repositories are private, so each title opens a case study
-          here rather than a GitHub 404.</p>
+        <p class="small">Most of these repositories are private, so on the real site each title
+          opens a case study here rather than a GitHub 404. Those pages don't exist yet, so nothing
+          in this list is clickable in the mockup.</p>
 
         <div class="projects">
-          <a class="project" href="#0">
+          <article class="project">
             <div>
               <h3>Sphala</h3>
               <p>Turns raw PostHog and GA4 experiment data into stakeholder-ready prose with an
@@ -609,9 +610,9 @@
               <div class="tags">Next.js 16 · Drizzle · BullMQ · Anthropic SDK · Clerk · Postgres</div>
             </div>
             <div class="year">2026</div>
-          </a>
+          </article>
 
-          <a class="project" href="#0">
+          <article class="project">
             <div>
               <h3>Growth Cockpit</h3>
               <p>Pulls GA4 funnels, Clarity frustration signals and PostHog experiments on a
@@ -620,9 +621,9 @@
               <div class="tags">Next.js 16 · Supabase + RLS · Inngest · BigQuery</div>
             </div>
             <div class="year">2026</div>
-          </a>
+          </article>
 
-          <a class="project" href="#0">
+          <article class="project">
             <div>
               <h3>Arka</h3>
               <p>Client and internal portal for a law firm. Entra ID SSO, SharePoint integration, a
@@ -630,9 +631,9 @@
               <div class="tags">Next.js 16 · Auth.js v5 · Prisma 7 · Postgres</div>
             </div>
             <div class="year">2026</div>
-          </a>
+          </article>
 
-          <a class="project" href="#0">
+          <article class="project">
             <div>
               <h3>Gonc Investing</h3>
               <p>Backtester and screener implementing Magic Formula, Piotroski, quality-value and
@@ -641,18 +642,18 @@
               <div class="tags">Next.js · Hono · FastAPI · pandas · Postgres · Docker</div>
             </div>
             <div class="year">2026</div>
-          </a>
+          </article>
 
-          <a class="project" href="#0">
+          <article class="project">
             <div>
               <h3>Notchy</h3>
               <p>A native macOS utility in Swift and SwiftUI.</p>
               <div class="tags">Swift · SwiftUI · XCTest</div>
             </div>
             <div class="year">2026</div>
-          </a>
+          </article>
 
-          <a class="project" href="#0">
+          <article class="project">
             <div>
               <h3>Melius</h3>
               <p>An autonomous web app that notified lawyers when something changed on one of their
@@ -660,7 +661,7 @@
               <div class="tags">Angular 8 · Node.js · PostgreSQL · Heroku</div>
             </div>
             <div class="year">2019 — 2022</div>
-          </a>
+          </article>
         </div>
 
         <div class="pending">
@@ -755,6 +756,11 @@
               <li>Ran training sessions and mentored new team members.</li>
             </ul>
           </li>
+          <li data-type="education">
+            <div class="when">2021</div>
+            <div class="what">Java OCP training <span class="kind">Training</span></div>
+            <div class="where">Taken towards the end of the Climber years, alongside the Java and Spring work.</div>
+          </li>
           <li data-type="stack">
             <div class="when">2021</div>
             <div class="what">TypeScript · React · Next.js · Kubernetes · Docker <span class="kind">Stack</span></div>
@@ -779,11 +785,6 @@
             <div class="what">Java · Spring · AngularJS · PostgreSQL <span class="kind">Stack</span></div>
           </li>
           <li data-type="education">
-            <div class="when">Year to confirm</div>
-            <div class="what">Java OCP training <span class="kind">Certification</span></div>
-            <div class="where">Needs the exact certification, year, and whether you sat the exam.</div>
-          </li>
-          <li data-type="education">
             <div class="when">2017 — 2018</div>
             <div class="what">AP Degree, Computer Science <span class="kind">Education</span></div>
             <div class="where">UCN — University College Nordjylland, Aalborg, Denmark. Did not complete.</div>
@@ -805,10 +806,10 @@
         <h2>Public repositories</h2>
         <p class="small">The four that are actually public, so these link straight to GitHub.</p>
         <div class="oss">
-          <a href="#0"><code>react_virtualized_timeline</code><span class="small">Virtualised timeline component</span></a>
-          <a href="#0"><code>react-magic-dropdown-button</code><span class="small">Dropdown button component</span></a>
-          <a href="#0"><code>performance_test_bun_hono</code><span class="small">Bun + Hono vs Node + Express</span></a>
-          <a href="#0"><code>nextjs-14-onboarding</code><span class="small">Next.js 14 walkthrough</span></a>
+          <a href="https://github.com/grandSeaFox/react_virtualized_timeline" target="_blank" rel="noopener"><code>react_virtualized_timeline</code><span class="small">Virtualised timeline component</span></a>
+          <a href="https://github.com/grandSeaFox/react-magic-dropdown-button" target="_blank" rel="noopener"><code>react-magic-dropdown-button</code><span class="small">Dropdown button component</span></a>
+          <a href="https://github.com/grandSeaFox/performance_test_bun_hono-node_express" target="_blank" rel="noopener"><code>performance_test_bun_hono</code><span class="small">Bun + Hono vs Node + Express</span></a>
+          <a href="https://github.com/grandSeaFox/nextjs-14-onboarding" target="_blank" rel="noopener"><code>nextjs-14-onboarding</code><span class="small">Next.js 14 walkthrough</span></a>
         </div>
       </div>
     </div>
@@ -884,22 +885,22 @@
           GGBA needs one before it can ship.</p>
 
         <div class="projects">
-          <a class="project" href="#0">
+          <article class="project">
             <div><h3>GGBA</h3><p>Android · Play Store listing requirement</p></div>
             <div class="year">/privacy/ggba</div>
-          </a>
-          <a class="project" href="#0">
+          </article>
+          <article class="project">
             <div><h3>Notchy</h3><p>macOS</p></div>
             <div class="year">/privacy/notchy</div>
-          </a>
-          <a class="project" href="#0">
+          </article>
+          <article class="project">
             <div><h3>Better Beta</h3><p>Awaiting details</p></div>
             <div class="year">/privacy/better-beta</div>
-          </a>
-          <a class="project" href="#0">
+          </article>
+          <article class="project">
             <div><h3>ImoCerto</h3><p>Awaiting details</p></div>
             <div class="year">/privacy/imocerto</div>
-          </a>
+          </article>
         </div>
 
         <div class="pending">
@@ -946,7 +947,7 @@
 <footer>
   <div class="wrap">
     <span class="small">Mockup for approval · nothing pushed</span>
-    <span><a href="#0">Email</a> · <a href="#0">GitHub</a> · <a href="#0">LinkedIn</a> · <a href="#0">RSS</a></span>
+    <span><a href="mailto:goncalo.raposeiro@outlook.com">Email</a> · <a href="https://github.com/grandSeaFox" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/gon%C3%A7alo-raposeiro/" target="_blank" rel="noopener">LinkedIn</a> · <span class="small">RSS once the blog ships</span></span>
   </div>
 </footer>
 

@@ -210,7 +210,7 @@ barcode scanners, Stripe terminals), championing an AI-first workflow, mentoring
 | | |
 | --- | --- |
 | AP Degree in Computer Science (not completed) | UCN — University College Nordjylland, Aalborg, Denmark · 2017–2018 |
-| **Java OCP training** | **Year needed — and which one: OCA/OCP, Java SE 8 or 11, and did you sit the exam or do the training only?** |
+| Java OCP training | ~2021, towards the end of the Climber years. **Still needed: which one (OCA or OCP, Java SE 8 or 11), and whether you sat the exam or did the training only.** |
 
 Phrasing matters on both. For UCN your CV says "(Canceled)"; on the site I'd write "AP Degree in
 Computer Science — UCN Aalborg, 2017–2018 (did not complete)". Plain and unapologetic reads
@@ -343,8 +343,10 @@ Your CV resolved the employment timeline, education, Melius and Stock-streamer. 
 1. **Option A (Astro) or Option B (in-place HTML)?**
 2. **Better Beta** — 2–3 sentences on what it is, and which of the three repos to lead with.
 3. **ImoCerto** — where does it live, or a description.
-4. **Java OCP** — which certification (OCA/OCP, Java SE 8 or 11), what year, and exam passed or
-   training only. I'll phrase it exactly as it is, but I need the facts.
+4. **Java OCP** — dated to ~2021 (late Climber). Still need: which certification (OCA or OCP,
+   Java SE 8 or 11) and whether you passed the exam or did the training only. Currently on the
+   timeline as "Java OCP training", labelled *Training* rather than *Certification*, which is the
+   safe reading of how you've described it — correct me if you passed it.
 5. **Privacy** — per app: does it collect data, use analytics or crash reporting, have accounts?
 6. **PostHog** — project API key, EU or US, cookieless or consent banner.
 
