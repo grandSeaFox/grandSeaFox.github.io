@@ -1,0 +1,1026 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gonçalo Raposeiro — portfolio redesign mockup</title>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body, h1, h2, h3, p, figure, blockquote, dl, dd, pre { margin: 0; }
+  ul, ol { margin: 0; padding: 0; }
+  img, canvas { max-width: 100%; }
+  button { font-family: inherit; }
+
+  :root {
+    --ground: #E9EAE3;
+    --surface: #F5F6F0;
+    --ink: #15171A;
+    --ink-2: #3A3F3C;
+    --muted: #6A6F68;
+    --rule: #CDD0C6;
+    --rule-soft: #DCDED5;
+    --accent: #453C8C;
+    --accent-soft: rgba(69, 60, 140, 0.09);
+    --on-accent: #FFFFFF;
+    --live: #7C5E14;
+
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, "Cascadia Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    --fs-xs: 0.6875rem;
+    --fs-sm: 0.8125rem;
+    --fs-base: 0.9375rem;
+    --fs-lg: 1.0625rem;
+    --fs-xl: 1.375rem;
+    --fs-2xl: 2rem;
+
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+    --rail: 172px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #121410;
+      --surface: #191C17;
+      --ink: #E7E9E1;
+      --ink-2: #B9BDB4;
+      --muted: #8C918A;
+      --rule: #2A2E28;
+      --rule-soft: #212520;
+      --accent: #9C8FF2;
+      --accent-soft: rgba(156, 143, 242, 0.13);
+      --on-accent: #14150F;
+      --live: #C9A94E;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #121410;
+    --surface: #191C17;
+    --ink: #E7E9E1;
+    --ink-2: #B9BDB4;
+    --muted: #8C918A;
+    --rule: #2A2E28;
+    --rule-soft: #212520;
+    --accent: #9C8FF2;
+    --accent-soft: rgba(156, 143, 242, 0.13);
+    --on-accent: #14150F;
+    --live: #C9A94E;
+  }
+
+  :root[data-theme="light"] {
+    --ground: #E9EAE3;
+    --surface: #F5F6F0;
+    --ink: #15171A;
+    --ink-2: #3A3F3C;
+    --muted: #6A6F68;
+    --rule: #CDD0C6;
+    --rule-soft: #DCDED5;
+    --accent: #453C8C;
+    --accent-soft: rgba(69, 60, 140, 0.09);
+    --on-accent: #FFFFFF;
+    --live: #7C5E14;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: var(--fs-base);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+  }
+
+  a { color: inherit; }
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  /* ---------- mockup banner ---------- */
+
+  .banner {
+    background: var(--accent);
+    color: var(--on-accent);
+    font-family: var(--mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.6rem 0;
+  }
+  .banner .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: space-between;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--ground) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .masthead .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 56px;
+    flex-wrap: wrap;
+  }
+  .sig {
+    font-family: var(--mono);
+    font-size: var(--fs-sm);
+    letter-spacing: 0.02em;
+    font-weight: 600;
+  }
+  .sig span { color: var(--muted); font-weight: 400; }
+  .viewnav {
+    display: flex;
+    gap: 0.25rem;
+    font-family: var(--mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .viewnav button {
+    background: none;
+    border: 1px solid transparent;
+    color: var(--muted);
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    padding: 0.35rem 0.6rem;
+    cursor: pointer;
+  }
+  .viewnav button:hover { color: var(--ink); }
+  .viewnav button[aria-current="true"] {
+    color: var(--accent);
+    border-color: var(--rule);
+    background: var(--accent-soft);
+  }
+
+  /* ---------- generic section scaffolding ---------- */
+
+  .band { border-bottom: 1px solid var(--rule); }
+  .band > .wrap { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+
+  .row {
+    display: grid;
+    grid-template-columns: var(--rail) minmax(0, 1fr);
+    gap: clamp(1rem, 4vw, 3rem);
+  }
+  @media (max-width: 720px) {
+    .row { grid-template-columns: 1fr; gap: 1rem; }
+  }
+
+  .label {
+    font-family: var(--mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .label .idx { color: var(--accent); }
+
+  h1, h2, h3 {
+    font-family: var(--mono);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    line-height: 1.15;
+  }
+  h2 { font-size: var(--fs-xl); margin-bottom: 0.35rem; }
+  h3 { font-size: var(--fs-lg); }
+
+  p { max-width: 66ch; }
+  .lede { font-size: var(--fs-lg); color: var(--ink-2); }
+  .small { font-size: var(--fs-sm); color: var(--muted); }
+  .stack { display: flex; flex-direction: column; gap: 1rem; }
+  .stack-sm { display: flex; flex-direction: column; gap: 0.4rem; }
+
+  /* ---------- hero ---------- */
+
+  .hero .wrap {
+    padding-block: clamp(3rem, 9vw, 6rem);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .hero .wrap { grid-template-columns: 1fr; }
+  }
+
+  .hero h1 {
+    font-size: clamp(1.9rem, 5.2vw, 3.1rem);
+    letter-spacing: -0.03em;
+    margin: 0.9rem 0 1.1rem;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.75rem;
+    font-family: var(--mono);
+    font-size: var(--fs-sm);
+    color: var(--muted);
+    margin-top: 1.5rem;
+  }
+  .facts b { color: var(--ink); font-weight: 500; }
+
+  .panel {
+    border: 1px solid var(--rule);
+    background: var(--surface);
+    padding: 0.75rem;
+    width: min(100%, 280px);
+  }
+  .panel canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 240 / 160;
+    image-rendering: pixelated;
+    background: #0d0f1a;
+  }
+  .panel figcaption {
+    font-family: var(--mono);
+    font-size: var(--fs-xs);
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0.6rem;
+  }
+
+  /* ---------- flagship ---------- */
+
+  .spec {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--mono);
+    font-size: var(--fs-sm);
+    font-variant-numeric: tabular-nums;
+    margin-top: 1.25rem;
+  }
+  .spec th,
+  .spec td {
+    text-align: left;
+    padding: 0.45rem 0.75rem 0.45rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+  }
+  .spec th { font-weight: 400; color: var(--muted); width: 46%; }
+  .spec td { color: var(--ink); }
+  .scroller { overflow-x: auto; }
+
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 1.5rem;
+  }
+  .metric {
+    background: var(--surface);
+    padding: 0.9rem 1rem;
+  }
+  .metric b {
+    display: block;
+    font-family: var(--mono);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+  }
+  .metric span {
+    font-family: var(--mono);
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+
+  /* ---------- project list ---------- */
+
+  .projects { display: flex; flex-direction: column; }
+  .project {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem 2rem;
+    align-items: baseline;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--rule-soft);
+    text-decoration: none;
+  }
+  .project:first-child { border-top: 0; }
+  .project:hover h3 { color: var(--accent); }
+  .project h3 { transition: color 0.15s ease; }
+  .project p { margin-top: 0.3rem; color: var(--ink-2); font-size: var(--fs-sm); }
+  .tags {
+    font-family: var(--mono);
+    font-size: var(--fs-xs);
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin-top: 0.5rem;
+  }
+  .year {
+    font-family: var(--mono);
+    font-size: var(--fs-sm);
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  @media (max-width: 560px) {
+    .project { grid-template-columns: 1fr; gap: 0.25rem; }
+  }
+
+  .pending {
+    border: 1px dashed var(--rule);
+    background: var(--accent-soft);
+    padding: 1rem 1.1rem;
+    margin-top: 1.25rem;
+  }
+  .pending .label { color: var(--accent); }
+
+  /* ---------- timeline ---------- */
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.75rem;
+  }
+  .chips button {
+    font-family: var(--mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.75rem;
+    background: none;
+    border: 1px solid var(--rule);
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .chips button:hover { color: var(--ink); border-color: var(--ink-2); }
+  .chips button[aria-pressed="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--on-accent);
+  }
+
+  .tl { list-style: none; border-left: 1px solid var(--rule); }
+  .tl li {
+    position: relative;
+    padding: 0 0 1.5rem 1.75rem;
+  }
+  .tl li::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    top: 0.5rem;
+    width: 7px;
+    height: 7px;
+    background: var(--rule);
+    border: 1px solid var(--ground);
+  }
+  .tl li[data-type="work"]::before { background: var(--accent); }
+  .tl li[data-type="gap"]::before { background: var(--live); }
+  .tl .when {
+    font-family: var(--mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .tl .what { font-family: var(--mono); font-weight: 600; font-size: var(--fs-base); }
+  .tl .where { color: var(--ink-2); font-size: var(--fs-sm); }
+  .tl ul { margin: 0.5rem 0 0 1rem; font-size: var(--fs-sm); color: var(--ink-2); }
+  .tl ul li { padding: 0.1rem 0; }
+  .tl ul li::before { display: none; }
+  .tl .kind {
+    font-family: var(--mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .tl li[data-type="gap"] .kind { color: var(--live); }
+  .tl li[hidden] { display: none; }
+
+  /* ---------- oss strip ---------- */
+
+  .oss {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .oss a {
+    background: var(--surface);
+    padding: 0.9rem 1rem;
+    text-decoration: none;
+    display: block;
+  }
+  .oss a:hover { background: var(--accent-soft); }
+  .oss code {
+    font-family: var(--mono);
+    font-size: var(--fs-sm);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  /* ---------- blog ---------- */
+
+  .posts { display: flex; flex-direction: column; }
+  .post {
+    padding: 1.35rem 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .post:first-child { border-top: 0; }
+  .post h3 { margin-bottom: 0.3rem; }
+  .post .meta {
+    font-family: var(--mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .flag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--live);
+    border: 1px solid currentColor;
+    padding: 0.05rem 0.4rem;
+    margin-left: 0.5rem;
+  }
+
+  /* ---------- code ---------- */
+
+  pre {
+    font-family: var(--mono);
+    font-size: var(--fs-sm);
+    line-height: 1.55;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    padding: 1rem;
+    overflow-x: auto;
+    margin-top: 1rem;
+    tab-size: 2;
+  }
+  pre .c { color: var(--muted); }
+  pre .k { color: var(--accent); }
+
+  /* ---------- footer ---------- */
+
+  footer { padding-block: 2.5rem; }
+  footer .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: var(--fs-sm);
+  }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+
+  .view[hidden] { display: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="wrap">
+    <span>Mockup — not published</span>
+    <span>Layout &amp; visual direction for approval</span>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="sig">GONÇALO RAPOSEIRO <span>/ engineer</span></div>
+    <nav class="viewnav" aria-label="Mockup views">
+      <button type="button" data-view="home" aria-current="true">Home</button>
+      <button type="button" data-view="blog" aria-current="false">Blog</button>
+      <button type="button" data-view="privacy" aria-current="false">Privacy</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================== HOME ============================== -->
+<main class="view" id="view-home">
+
+  <section class="hero band">
+    <div class="wrap">
+      <div>
+        <div class="label">Lisbon, Portugal</div>
+        <h1>I build products that ship, and <em>systems that have no right to work.</em></h1>
+        <p class="lede">Senior Software Engineer at Park, where I take features from design to
+          deployment across React, Rails and TypeScript. Before that, growth engineering at Roofr
+          and full-stack at Nokia. On my own time I wrote a Game Boy Advance emulator in Rust.</p>
+        <div class="facts">
+          <span><b>8 yrs</b> shipping</span>
+          <span><b>Rust</b> · <b>TypeScript</b> · <b>Ruby</b> · <b>Swift</b></span>
+          <span><b>Available</b> for interesting problems</span>
+        </div>
+      </div>
+      <figure class="panel">
+        <canvas id="fb" width="240" height="160" aria-label="A 240 by 160 pixel field, the native framebuffer size of the Game Boy Advance"></canvas>
+        <figcaption><span>FRAMEBUFFER</span><span>240 × 160</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap row">
+      <div class="label"><span class="idx">01</span> — Flagship</div>
+      <div>
+        <h2>GGBA — a Game Boy Advance emulator, written from scratch in Rust</h2>
+        <p>No third-party emulator code, no BIOS image, no ROMs. An ARM7TDMI interpreter validated
+          against <code>gba-tests</code>, a full PPU, an APU, and a Jetpack Compose Android shell on
+          top. The <code>emu-core</code> crate deliberately knows nothing about the GBA, so a second
+          console costs no UI work.</p>
+
+        <div class="metrics">
+          <div class="metric"><b>8×</b><span>Real time, desktop</span></div>
+          <div class="metric"><b>60</b><span>fps, Pixel 8 Pro</span></div>
+          <div class="metric"><b>1.3</b><span>of 8 cores used</span></div>
+          <div class="metric"><b>270</b><span>Tests, 0 warnings</span></div>
+        </div>
+
+        <div class="scroller">
+          <table class="spec">
+            <tbody>
+              <tr><th>CPU</th><td>ARM7TDMI — full ARM + THUMB</td></tr>
+              <tr><th>PPU</th><td>All six video modes, sprites, windows, blending</td></tr>
+              <tr><th>APU</th><td>4 PSG channels + 2 DirectSound FIFOs</td></tr>
+              <tr><th>Memory</th><td>Bus decode, mirroring, wait states, open bus</td></tr>
+              <tr><th>Saves</th><td>SRAM, Flash 64K/128K, EEPROM, save states</td></tr>
+              <tr><th>Shells</th><td>Android (shipped) · iOS (FFI builds, app not started)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap row">
+      <div class="label"><span class="idx">02</span> — Selected work</div>
+      <div>
+        <h2>Projects</h2>
+        <p class="small">Most of these repositories are private, so each title opens a case study
+          here rather than a GitHub 404.</p>
+
+        <div class="projects">
+          <a class="project" href="#0">
+            <div>
+              <h3>Sphala</h3>
+              <p>Turns raw PostHog and GA4 experiment data into stakeholder-ready prose with an
+                explicit ship / hold / kill call, delivered to Slack on a schedule.</p>
+              <div class="tags">Next.js 16 · Drizzle · BullMQ · Anthropic SDK · Clerk · Postgres</div>
+            </div>
+            <div class="year">2026</div>
+          </a>
+
+          <a class="project" href="#0">
+            <div>
+              <h3>Growth Cockpit</h3>
+              <p>Pulls GA4 funnels, Clarity frustration signals and PostHog experiments on a
+                schedule, then ranks each fresh snapshot into a prioritised action queue. Nothing
+                heavy runs on page load.</p>
+              <div class="tags">Next.js 16 · Supabase + RLS · Inngest · BigQuery</div>
+            </div>
+            <div class="year">2026</div>
+          </a>
+
+          <a class="project" href="#0">
+            <div>
+              <h3>Arka</h3>
+              <p>Client and internal portal for a law firm. Entra ID SSO, SharePoint integration, a
+                role and permission model with an audit layer over a dedicated data-access layer.</p>
+              <div class="tags">Next.js 16 · Auth.js v5 · Prisma 7 · Postgres</div>
+            </div>
+            <div class="year">2026</div>
+          </a>
+
+          <a class="project" href="#0">
+            <div>
+              <h3>Gonc Investing</h3>
+              <p>Backtester and screener implementing Magic Formula, Piotroski, quality-value and
+                momentum, plus a z-score composite and a walk-forward engine reporting CAGR, Sharpe,
+                Sortino and drawdown. Runs a persistent $10k paper portfolio daily.</p>
+              <div class="tags">Next.js · Hono · FastAPI · pandas · Postgres · Docker</div>
+            </div>
+            <div class="year">2026</div>
+          </a>
+
+          <a class="project" href="#0">
+            <div>
+              <h3>Notchy</h3>
+              <p>A native macOS utility in Swift and SwiftUI.</p>
+              <div class="tags">Swift · SwiftUI · XCTest</div>
+            </div>
+            <div class="year">2026</div>
+          </a>
+
+          <a class="project" href="#0">
+            <div>
+              <h3>Melius</h3>
+              <p>An autonomous web app that notified lawyers when something changed on one of their
+                cases. Ran in production for three years at melius.pt.</p>
+              <div class="tags">Angular 8 · Node.js · PostgreSQL · Heroku</div>
+            </div>
+            <div class="year">2019 — 2022</div>
+          </a>
+        </div>
+
+        <div class="pending">
+          <div class="label">Two slots reserved</div>
+          <p class="small" style="margin-top:0.4rem">Better Beta and ImoCerto go here. I could not
+            read either — Better Beta sits under a different GitHub owner than this session can
+            reach, and ImoCerto is not in your repository list at all. Send me a few sentences on
+            each and they drop straight into this list.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap row">
+      <div class="label"><span class="idx">03</span> — Timeline</div>
+      <div>
+        <h2>Eight years, in order</h2>
+        <p class="small">Jobs, education and projects share one spine, because they happened at the
+          same time. Filter it:</p>
+
+        <div class="chips" role="group" aria-label="Filter timeline">
+          <button type="button" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-filter="work" aria-pressed="false">Work</button>
+          <button type="button" data-filter="education" aria-pressed="false">Education</button>
+          <button type="button" data-filter="project" aria-pressed="false">Projects</button>
+          <button type="button" data-filter="stack" aria-pressed="false">Stack</button>
+        </div>
+
+        <ul class="tl" id="tl">
+          <li data-type="project">
+            <div class="when">Aug 2026</div>
+            <div class="what">GGBA — Game Boy Advance emulator <span class="kind">Project</span></div>
+            <div class="where">Rust, Android. 270 tests, 60 fps on device.</div>
+          </li>
+          <li data-type="stack">
+            <div class="when">2026</div>
+            <div class="what">Rust · Anthropic SDK · Drizzle · BullMQ <span class="kind">Stack</span></div>
+          </li>
+          <li data-type="project">
+            <div class="when">May — Jul 2026</div>
+            <div class="what">Sphala · Arka · Growth Cockpit · Gonc Investing <span class="kind">Projects</span></div>
+          </li>
+          <li data-type="stack">
+            <div class="when">2025</div>
+            <div class="what">Swift · SwiftUI <span class="kind">Stack</span></div>
+          </li>
+          <li data-type="work">
+            <div class="when">Sep 2024 — Present</div>
+            <div class="what">Senior Software Engineer <span class="kind">Work</span></div>
+            <div class="where">Park · Lisbon, hybrid</div>
+            <ul>
+              <li>Own product features end to end across React, Ruby on Rails and TypeScript.</li>
+              <li>Modernised an aging codebase, introducing engineering standards that lifted quality and reliability.</li>
+              <li>Drove the shift to a product-led approach — instrumented features with analytics and A/B testing.</li>
+              <li>Built integrations with physical devices: thermal printers, barcode scanners, Stripe terminals.</li>
+              <li>Championed an AI-first development workflow; mentored engineers on review practice.</li>
+            </ul>
+          </li>
+          <li data-type="stack">
+            <div class="when">2024</div>
+            <div class="what">Ruby on Rails · AWS · Stripe · PostHog · BigQuery · Go <span class="kind">Stack</span></div>
+          </li>
+          <li data-type="gap">
+            <div class="when">Apr — Sep 2024</div>
+            <div class="what">Independent projects <span class="kind">Between roles</span></div>
+            <div class="where">Bun vs Node benchmark, stock-streamer, a supermarket price scraper in
+              Go, Kabanza, and a Next.js 14 onboarding walkthrough.</div>
+          </li>
+          <li data-type="work">
+            <div class="when">Apr 2023 — Apr 2024</div>
+            <div class="what">Senior Growth Software Engineer <span class="kind">Work</span></div>
+            <div class="where">Roofr · Toronto, remote</div>
+            <ul>
+              <li>Built and shipped growth strategies driving application growth and user engagement.</li>
+              <li>Instrumented every new feature with Amplitude to track usage against growth metrics.</li>
+              <li>Turned concepts into shipped solutions, optimising for value delivered per unit of time.</li>
+            </ul>
+          </li>
+          <li data-type="project">
+            <div class="when">Mar 2023</div>
+            <div class="what">Stock-streamer <span class="kind">Project</span></div>
+            <div class="where">Node, Express, MongoDB, Docker, Nginx, Portainer.</div>
+          </li>
+          <li data-type="work">
+            <div class="when">Nov 2021 — Apr 2023</div>
+            <div class="what">Fullstack Software Engineer <span class="kind">Work</span></div>
+            <div class="where">Nokia · Lisbon</div>
+            <ul>
+              <li>Designed and built new interfaces and React components.</li>
+              <li>Re-architected project components for maintainability and scale.</li>
+              <li>Ran training sessions and mentored new team members.</li>
+            </ul>
+          </li>
+          <li data-type="stack">
+            <div class="when">2021</div>
+            <div class="what">TypeScript · React · Next.js · Kubernetes · Docker <span class="kind">Stack</span></div>
+          </li>
+          <li data-type="project">
+            <div class="when">Jun 2019 — Sep 2022</div>
+            <div class="what">Melius <span class="kind">Project</span></div>
+            <div class="where">Case-change notifications for lawyers. Angular 8, Node, PostgreSQL.</div>
+          </li>
+          <li data-type="work">
+            <div class="when">Sep 2018 — Nov 2021</div>
+            <div class="what">Junior Software Engineer <span class="kind">Work</span></div>
+            <div class="where">Climber · Lisbon</div>
+            <ul>
+              <li>Worked with the Product Manager on UI/UX research for new screens.</li>
+              <li>Built integrations and algorithms extending application functionality.</li>
+              <li>Kept the production environment reliable through monitoring and maintenance.</li>
+            </ul>
+          </li>
+          <li data-type="stack">
+            <div class="when">2018</div>
+            <div class="what">Java · Spring · AngularJS · PostgreSQL <span class="kind">Stack</span></div>
+          </li>
+          <li data-type="education">
+            <div class="when">Year to confirm</div>
+            <div class="what">Java OCP training <span class="kind">Certification</span></div>
+            <div class="where">Needs the exact certification, year, and whether you sat the exam.</div>
+          </li>
+          <li data-type="education">
+            <div class="when">2017 — 2018</div>
+            <div class="what">AP Degree, Computer Science <span class="kind">Education</span></div>
+            <div class="where">UCN — University College Nordjylland, Aalborg, Denmark. Did not complete.</div>
+          </li>
+          <li data-type="work">
+            <div class="when">Sep 2016 — Jan 2017</div>
+            <div class="what">Retail <span class="kind">Work</span></div>
+            <div class="where">Worten. Kept because the story is good — cut it if you'd rather.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap row">
+      <div class="label"><span class="idx">04</span> — Open source</div>
+      <div>
+        <h2>Public repositories</h2>
+        <p class="small">The four that are actually public, so these link straight to GitHub.</p>
+        <div class="oss">
+          <a href="#0"><code>react_virtualized_timeline</code><span class="small">Virtualised timeline component</span></a>
+          <a href="#0"><code>react-magic-dropdown-button</code><span class="small">Dropdown button component</span></a>
+          <a href="#0"><code>performance_test_bun_hono</code><span class="small">Bun + Hono vs Node + Express</span></a>
+          <a href="#0"><code>nextjs-14-onboarding</code><span class="small">Next.js 14 walkthrough</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap row">
+      <div class="label"><span class="idx">05</span> — Contact</div>
+      <div>
+        <h2>Get in touch</h2>
+        <p>Open to interesting problems, particularly where product thinking and systems work meet.</p>
+        <div class="facts">
+          <span><b>goncalo.raposeiro@outlook.com</b></span>
+          <span><b>github.com/grandSeaFox</b></span>
+          <span><b>linkedin.com/in/gonçalo-raposeiro</b></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============================== BLOG ============================== -->
+<main class="view" id="view-blog" hidden>
+  <section class="band">
+    <div class="wrap row">
+      <div class="label">Writing</div>
+      <div>
+        <h2>Blog</h2>
+        <p>Notes on emulation, growth engineering, and things that turned out harder than expected.
+          One Markdown file per post — front-matter sets the title, date and tags, and the index,
+          tag pages and RSS feed all build themselves from it.</p>
+
+        <div class="posts">
+          <article class="post">
+            <div class="meta">Proposed · Rust, emulation</div>
+            <h3>Writing a Game Boy Advance emulator in Rust <span class="flag">Draft</span></h3>
+            <p>Why an interpreter and not a JIT, validating an ARM7TDMI against <code>gba-tests</code>,
+              and keeping <code>emu-core</code> ignorant of the console it drives.</p>
+          </article>
+          <article class="post">
+            <div class="meta">Proposed · Benchmarks</div>
+            <h3>Bun + Hono vs Node + Express <span class="flag">Draft</span></h3>
+            <p>The benchmark is already written and public. This is the methodology and the numbers.</p>
+          </article>
+          <article class="post">
+            <div class="meta">Proposed · Analytics</div>
+            <h3>Instrumenting a static portfolio with PostHog <span class="flag">Draft</span></h3>
+            <p>What is worth measuring on a personal site, and what a static host cannot do about
+              ad blockers.</p>
+          </article>
+        </div>
+
+        <div class="pending">
+          <div class="label">Nothing is written yet</div>
+          <p class="small" style="margin-top:0.4rem">These three are proposals, not posts. Launching
+            an empty blog reads as abandoned from day one — I'd write at least one before this goes
+            live. I can draft any of them from the repositories for you to edit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============================== PRIVACY ============================== -->
+<main class="view" id="view-privacy" hidden>
+  <section class="band">
+    <div class="wrap row">
+      <div class="label">Legal</div>
+      <div>
+        <h2>Privacy policies</h2>
+        <p>One page per shipped app, each generated from a Markdown file so adding an app is a
+          single file. Google Play requires a reachable privacy policy URL for every listing, so
+          GGBA needs one before it can ship.</p>
+
+        <div class="projects">
+          <a class="project" href="#0">
+            <div><h3>GGBA</h3><p>Android · Play Store listing requirement</p></div>
+            <div class="year">/privacy/ggba</div>
+          </a>
+          <a class="project" href="#0">
+            <div><h3>Notchy</h3><p>macOS</p></div>
+            <div class="year">/privacy/notchy</div>
+          </a>
+          <a class="project" href="#0">
+            <div><h3>Better Beta</h3><p>Awaiting details</p></div>
+            <div class="year">/privacy/better-beta</div>
+          </a>
+          <a class="project" href="#0">
+            <div><h3>ImoCerto</h3><p>Awaiting details</p></div>
+            <div class="year">/privacy/imocerto</div>
+          </a>
+        </div>
+
+        <div class="pending">
+          <div class="label">I will not write these from guesswork</div>
+          <p class="small" style="margin-top:0.4rem">A policy that misdescribes what an app collects
+            is a legal problem, not a copy problem. For each app: does it collect anything, does it
+            use analytics or crash reporting, does it have accounts, does it phone home? For GGBA I
+            expect the honest answer is close to "nothing leaves the device" — which makes for a
+            short, strong policy. You confirm it, I won't assume.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap row">
+      <div class="label">Analytics</div>
+      <div>
+        <h2>What gets added to every page</h2>
+        <p>Loaded once in the shared layout head, so it covers the home page, every case study,
+          every post and every policy.</p>
+        <pre><span class="c">&lt;!-- PostHog: official loader, abbreviated here --&gt;</span>
+&lt;script&gt;
+  !function(t,e){ <span class="c">/* … loader … */</span> }(document, window.posthog||[]);
+  posthog.<span class="k">init</span>(<span class="k">'phc_YOUR_PROJECT_KEY'</span>, {
+    api_host:        <span class="k">'https://eu.i.posthog.com'</span>,
+    defaults:        <span class="k">'2025-05-24'</span>,
+    person_profiles: <span class="k">'identified_only'</span>,  <span class="c">// no profile for drive-by visits</span>
+    persistence:     <span class="k">'memory'</span>             <span class="c">// cookieless — no consent banner</span>
+  });
+&lt;/script&gt;</pre>
+        <p class="small" style="margin-top:1rem">Named events on top of autocapture:
+          <code>project_card_click</code>, <code>case_study_scroll_depth</code>,
+          <code>blog_post_read</code>, <code>outbound_click</code>. Those are what answer "which
+          project is actually pulling attention".</p>
+        <p class="small">One limitation stated up front: the usual ad-blocker workaround is a
+          reverse proxy on your own domain, and GitHub Pages has no proxy layer. Expect 10–30% of
+          traffic to be invisible. Fine for trends, not for absolute counts.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="small">Mockup for approval · nothing pushed</span>
+    <span><a href="#0">Email</a> · <a href="#0">GitHub</a> · <a href="#0">LinkedIn</a> · <a href="#0">RSS</a></span>
+  </div>
+</footer>
+
+<script>
+  // ---- view switching (mockup only; real site uses separate routes) ----
+  var viewButtons = document.querySelectorAll('.viewnav button');
+  viewButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var target = btn.dataset.view;
+      viewButtons.forEach(function (b) {
+        b.setAttribute('aria-current', String(b === btn));
+      });
+      document.querySelectorAll('.view').forEach(function (v) {
+        v.hidden = v.id !== 'view-' + target;
+      });
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    });
+  });
+
+  // ---- timeline filter ----
+  var chips = document.querySelectorAll('.chips button');
+  var entries = document.querySelectorAll('#tl > li');
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var f = chip.dataset.filter;
+      chips.forEach(function (c) {
+        c.setAttribute('aria-pressed', String(c === chip));
+      });
+      entries.forEach(function (li) {
+        var t = li.dataset.type;
+        li.hidden = !(f === 'all' || t === f || (f === 'work' && t === 'gap'));
+      });
+    });
+  });
+
+  // ---- hero framebuffer: 240x160, the GBA's native resolution ----
+  (function () {
+    var canvas = document.getElementById('fb');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var W = 240, H = 160;
+    var img = ctx.createImageData(W, H);
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function draw(t) {
+      var d = img.data;
+      for (var y = 0; y < H; y++) {
+        for (var x = 0; x < W; x++) {
+          var v = Math.sin((x * 0.045) + t) + Math.sin((y * 0.055) - t * 0.7)
+                + Math.sin((x + y) * 0.028 + t * 0.4);
+          var n = (v + 3) / 6;                       // 0..1
+          var i = (y * W + x) * 4;
+          d[i]     = 22 + n * 96;                    // R
+          d[i + 1] = 18 + n * 74;                    // G
+          d[i + 2] = 54 + n * 150;                   // B — indigo-weighted
+          d[i + 3] = 255;
+          if (y % 2 === 1) {                         // scanlines
+            d[i] *= 0.82; d[i + 1] *= 0.82; d[i + 2] *= 0.82;
+          }
+        }
+      }
+      ctx.putImageData(img, 0, 0);
+    }
+
+    if (still) {
+      draw(0);
+      return;
+    }
+    var start = performance.now();
+    (function loop(now) {
+      draw((now - start) / 2600);
+      requestAnimationFrame(loop);
+    })(start);
+  })();
+</script>
+</body>
+</html>
