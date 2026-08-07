@@ -117,15 +117,25 @@ straight to S3/Hetzner, then serve back through the CDN with Cloudflare Image Re
 surface gets an appropriately sized asset. MapLibre map of areas and routes, send logging with
 grade confirmation, XP, leaderboards, achievements.
 
-Three reasons this belongs near the top, above Sphala:
+**You co-founded it, and that changes how it should be presented.** It isn't a personal project
+in a list of personal projects — it's a company you helped start, with its own domain, its own
+entity and its own privacy policy. So it appears twice on the site:
+
+- In **Projects**, tagged *Co-founder*, linking out to betterbeta.io.
+- In the **timeline as a role**, running concurrently with the Park job — which is exactly the
+  kind of thing the merged timeline exists to show. "Co-founded and shipped a mobile product while
+  holding down a senior engineering role" is a stronger claim than either fact alone.
+
+Two reasons it sits above Sphala:
 
 - It's a **product with users**, not a repo. The screenshots show real sends logged against real
   routes on the Portuguese coast.
-- Three repos under one org (`better-beta`, `better-send`, `beta-list`) reads as a surface area,
-  not a weekend project.
 - **It's your only mobile app besides GGBA's Android shell**, and it's the one non-engineer
   visitors can immediately understand. GGBA proves depth; Better Beta proves you ship things
   people use.
+
+**Your CV doesn't mention it.** You co-founded a company and the document you send employers is
+silent on it. That's a bigger omission than the missing Rust and Swift.
 
 Note for the case study: the README says the map is "a stylized SVG… for production swap to
 MapLibre/Mapbox", but the screenshot clearly shows MapLibre attribution. You've done the swap and
@@ -288,8 +298,14 @@ Structure: `/privacy` as an index, `/privacy/<app>` per app, each generated from
 so adding an app is one file.
 
 Candidates: **GGBA** (Google Play requires a reachable privacy policy URL for every listing —
-this is a hard blocker for shipping, not a nice-to-have), **Notchy**, **Better Beta**,
-**ImoCerto**, **camp-mobile** if it's distributed.
+this is a hard blocker for shipping, not a nice-to-have), **Notchy**, **ImoCerto**, and
+**camp-mobile** if it's distributed.
+
+**Better Beta is excluded on purpose.** It's a separate company with its own domain and its own
+policy at `betterbeta.io/privacy`. Duplicating it here would be a liability rather than a
+convenience: two copies drift, and only one of them is the operative document. The portfolio links
+out to it instead. (I couldn't verify that URL — `betterbeta.io` is blocked by this environment's
+egress proxy — so confirm the exact path before it goes live.)
 
 Each page: what data is collected, what isn't, third-party processors (analytics, crash
 reporting, auth provider), retention period, user rights under GDPR, contact address, and a
@@ -360,21 +376,16 @@ Your CV resolved the employment timeline, education, Melius and Stock-streamer. 
 **Blocking:**
 
 1. **Option A (Astro) or Option B (in-place HTML)?**
-2. **Better Beta screenshots** — the two you sent came through as inline images, not as files I
-   can read off disk, so I can't inline them as previews. Commit them to `images/projects/` on the
-   branch and the card gets artwork. Also: which of the three repos leads, and what are
-   `better-send` and `beta-list`?
+2. **Better Beta** — the co-founder start date, for the timeline entry. And the two screenshots:
+   they arrived as inline images rather than files I can read off disk, so commit them to
+   `images/projects/` and the card gets artwork.
 3. **ImoCerto** — where does it live, or a description.
 4. **Java OCP** — dated to ~2021 (late Climber). Still need: which certification (OCA or OCP,
    Java SE 8 or 11) and whether you passed the exam or did the training only. Currently on the
    timeline as "Java OCP training", labelled *Training* rather than *Certification*, which is the
    safe reading of how you've described it — correct me if you passed it.
-5. **Privacy** — per app: does it collect data, use analytics or crash reporting, have accounts?
-   Better Beta is the one that actually needs care: it has accounts (Supabase Auth with Google,
-   Apple and GitHub OAuth), stores user photos in a bucket behind a CDN, and records climb
-   locations. That's personal data under GDPR, held by a processor, about EU users. I need the
-   retention period, whether deleting an account purges the images, and whether any analytics or
-   crash reporting is wired in.
+5. **Privacy** — for GGBA, Notchy and ImoCerto: does it collect data, use analytics or crash
+   reporting, have accounts? (Better Beta is out of scope — its policy lives on its own domain.)
 6. **PostHog** — project API key, EU or US, cookieless or consent banner.
 
 **Non-blocking (I'll use placeholders and you correct them):**

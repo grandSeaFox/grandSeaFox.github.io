@@ -361,6 +361,18 @@
     letter-spacing: 0.04em;
     margin-top: 0.5rem;
   }
+  .role {
+    font-family: var(--mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid currentColor;
+    padding: 0.05rem 0.4rem;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    font-weight: 400;
+  }
   .year {
     font-family: var(--mono);
     font-size: var(--fs-sm);
@@ -629,14 +641,15 @@
 
         <div class="projects">
                     <article class="project">
-            <div class="phead"><h3>Better Beta</h3><span class="year">2026</span></div>
-            <p>A bouldering and sport-climbing app. Offline-first by design: an on-device SQLite
-              cache backed by Supabase Postgres with row-level security, and a sync layer between
-              them, so the map still works with no signal at the crag. Photos upload through a
-              Cloudflare Worker that mints presigned PUTs straight to the bucket and come back
-              resized through the CDN. MapLibre map of areas and routes, send logging with grade
-              confirmation, XP, leaderboards and achievements.</p>
+            <div class="phead"><h3>Better Beta <span class="role">Co-founder</span></h3><span class="year">2026 — Present</span></div>
+            <p>A bouldering and sport-climbing app, and a company. Offline-first by design: an
+              on-device SQLite cache backed by Supabase Postgres with row-level security, and a sync
+              layer between them, so the map still works with no signal at the crag. Photos upload
+              through a Cloudflare Worker that mints presigned PUTs straight to the bucket and come
+              back resized through the CDN. MapLibre map of areas and routes, send logging with
+              grade confirmation, XP, leaderboards and achievements.</p>
             <div class="tags">React Native · Expo SDK 51 · TypeScript · SQLite · Supabase · MapLibre · Cloudflare Workers</div>
+            <div class="tags"><a href="https://betterbeta.io" target="_blank" rel="noopener">betterbeta.io ↗</a></div>
           </article>
                     <article class="project">
             <div class="phead"><h3>Sphala</h3><span class="year">2026</span></div>
@@ -717,6 +730,11 @@
             <div class="when">Aug 2026</div>
             <div class="what">GGBA — Game Boy Advance emulator <span class="kind">Project</span></div>
             <div class="where">Rust, Android. 270 tests, 60 fps on device.</div>
+          </li>
+          <li data-type="work">
+            <div class="when">2026 — Present</div>
+            <div class="what">Co-founder <span class="kind">Work</span></div>
+            <div class="where">Better Beta · alongside the Park role. Start date to confirm.</div>
           </li>
           <li data-type="stack">
             <div class="when">2026</div>
@@ -904,6 +922,11 @@
         <p>One page per shipped app, each generated from a Markdown file so adding an app is a
           single file. Google Play requires a reachable privacy policy URL for every listing, so
           GGBA needs one before it can ship.</p>
+        <p class="small" style="margin-top:0.5rem">Better Beta is deliberately absent. It's a
+          separate company with its own domain and its own policy at
+          <a href="https://betterbeta.io/privacy" target="_blank" rel="noopener">betterbeta.io/privacy</a>
+          — a second copy on a personal site would be a liability, not a convenience, since the two
+          would drift apart and only one of them is the operative document.</p>
 
         <div class="projects">
                     <article class="project">
@@ -913,10 +936,6 @@
                     <article class="project">
             <div class="phead"><h3>Notchy</h3><span class="year">/privacy/notchy</span></div>
             <p>macOS</p>
-          </article>
-                    <article class="project">
-            <div class="phead"><h3>Better Beta</h3><span class="year">/privacy/better-beta</span></div>
-            <p>iOS + Android · accounts, user photos, climb locations — the longest policy of the four</p>
           </article>
                     <article class="project">
             <div class="phead"><h3>ImoCerto</h3><span class="year">/privacy/imocerto</span></div>
@@ -931,12 +950,8 @@
             use analytics or crash reporting, does it have accounts, does it phone home? For GGBA I
             expect the honest answer is close to "nothing leaves the device" — which makes for a
             short, strong policy. You confirm it, I won't assume.</p>
-          <p class="small" style="margin-top:0.6rem">Better Beta is the one that genuinely needs
-            care. Its README already tells me it has accounts (Supabase Auth, with Google, Apple and
-            GitHub OAuth), stores user-uploaded photos in a bucket behind a CDN, and records climb
-            locations. That is personal data under GDPR, held by a processor, about EU users. What I
-            still need from you: retention period, whether account deletion purges the images, and
-            whether any analytics or crash reporting is wired in.</p>
+          <p class="small" style="margin-top:0.6rem">Three apps, not four — Better Beta's policy
+            lives on its own domain and stays there.</p>
         </div>
       </div>
     </div>
