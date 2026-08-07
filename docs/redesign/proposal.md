@@ -107,8 +107,8 @@ Docker Compose stack (Caddy + local TLS, Postgres 17 with pgvector, Redis with A
 the intended OVH production topology. Product thinking + LLM work + infrastructure in one
 project.
 
-**3. Better Beta — `better-beta/better-beta`, `better-send`, `beta-list`**
-A bouldering and sport-climbing app, shipped and running on device. React Native (Expo SDK 51,
+**3. Better Beta — `better-beta/better-beta`, `better-send`, `beta-list`** · founded Jun 2026
+A bouldering and sport-climbing app for iOS and Android, in internal beta. React Native (Expo SDK 51,
 Expo Router) in TypeScript. The interesting part is the data architecture: an on-device SQLite
 cache is the read path, Supabase Postgres with row-level security is the source of truth, and a
 sync layer reconciles them — which is the correct call for an app used at a crag with no signal.
@@ -126,13 +126,21 @@ entity and its own privacy policy. So it appears twice on the site:
   kind of thing the merged timeline exists to show. "Co-founded and shipped a mobile product while
   holding down a senior engineering role" is a stronger claim than either fact alone.
 
-Two reasons it sits above Sphala:
+Three reasons it sits above Sphala:
 
-- It's a **product with users**, not a repo. The screenshots show real sends logged against real
-  routes on the Portuguese coast.
+- It's a **product**, not a repo. The screenshots show real sends logged against real routes on
+  the Portuguese coast.
+- **Three services, not one app** — and now that I know what they are, it's worth saying on the
+  card: the client (`better-beta`), a data-ingestion pipeline behind it (`better-send`), and the
+  waiting-list site that feeds the beta (`beta-list`). Client, backend and go-to-market, built by
+  two people in two months. That reads as a company; "a React Native app" doesn't.
 - **It's your only mobile app besides GGBA's Android shell**, and it's the one non-engineer
   visitors can immediately understand. GGBA proves depth; Better Beta proves you ship things
   people use.
+
+Say "in internal beta" on the card and mean it. It's more credible than implying a public launch,
+and "founded two months ago, already in testing on both platforms" is the more impressive framing
+anyway.
 
 **Your CV doesn't mention it.** You co-founded a company and the document you send employers is
 silent on it. That's a bigger omission than the missing Rust and Swift.
@@ -302,10 +310,9 @@ this is a hard blocker for shipping, not a nice-to-have), **Notchy**, **ImoCerto
 **camp-mobile** if it's distributed.
 
 **Better Beta is excluded on purpose.** It's a separate company with its own domain and its own
-policy at `betterbeta.io/privacy`. Duplicating it here would be a liability rather than a
-convenience: two copies drift, and only one of them is the operative document. The portfolio links
-out to it instead. (I couldn't verify that URL — `betterbeta.io` is blocked by this environment's
-egress proxy — so confirm the exact path before it goes live.)
+policy at `betterbeta.io/privacy` (confirmed correct). Duplicating it here would be a liability
+rather than a convenience: two copies drift, and only one of them is the operative document. The
+portfolio links out to it instead.
 
 Each page: what data is collected, what isn't, third-party processors (analytics, crash
 reporting, auth provider), retention period, user rights under GDPR, contact address, and a
@@ -376,9 +383,10 @@ Your CV resolved the employment timeline, education, Melius and Stock-streamer. 
 **Blocking:**
 
 1. **Option A (Astro) or Option B (in-place HTML)?**
-2. **Better Beta** — the co-founder start date, for the timeline entry. And the two screenshots:
-   they arrived as inline images rather than files I can read off disk, so commit them to
-   `images/projects/` and the card gets artwork.
+2. **Better Beta screenshots** — the two you sent arrived as inline images rather than files I can
+   read off disk. Commit them to `images/projects/` and the card gets artwork. *(Everything else
+   about Better Beta is now settled: founded Jun 2026, iOS + Android in internal beta, three repos,
+   privacy policy stays on its own domain.)*
 3. **ImoCerto** — where does it live, or a description.
 4. **Java OCP** — dated to ~2021 (late Climber). Still need: which certification (OCA or OCP,
    Java SE 8 or 11) and whether you passed the exam or did the training only. Currently on the
