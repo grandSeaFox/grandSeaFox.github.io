@@ -24,6 +24,11 @@ const projects = defineCollection({
     // Path under /public. Entries without one render with no media column.
     cover: z.string().optional(),
     coverAlt: z.string().optional(),
+    // Caption under the image. Required reading when figures are illustrative
+    // rather than real, so a rebuilt screenshot is never mistaken for evidence.
+    coverNote: z.string().optional(),
+    // id of another project this one grew out of.
+    parent: z.string().optional(),
     featured: z.boolean().default(false),
     order: z.number().default(100),
     draft: z.boolean().default(false),

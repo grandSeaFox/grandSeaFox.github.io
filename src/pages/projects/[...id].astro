@@ -32,7 +32,8 @@ const { Content } = await render(project);
         )}
         {project.data.cover && (
           <figure class="shot" style="margin-top:1.5rem; max-width:640px">
-            <img src={project.data.cover} alt={project.data.coverAlt ?? ''} width="900" height="506" />
+            <img src={project.data.cover} alt={project.data.coverAlt ?? ''} />
+            {project.data.coverNote && <figcaption>{project.data.coverNote}</figcaption>}
           </figure>
         )}
         <div class="prose" style="margin-top:1.5rem"><Content /></div>

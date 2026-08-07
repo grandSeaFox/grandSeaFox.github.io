@@ -269,15 +269,21 @@ a.project:hover h3 { color: var(--accent); }
 .chip.pending { color: var(--live); }
 
 .shot {
-  grid-row: 1 / span 4;
   grid-column: 2;
   border: 1px solid var(--rule);
   background: var(--surface);
   padding: 4px;
 }
 .shot img { display: block; width: 100%; height: auto; }
+.shot figcaption {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--muted);
+  line-height: 1.4;
+  padding: 0.5rem 0.25rem 0.15rem;
+}
 @media (max-width: 700px) {
-  .shot { grid-row: auto; grid-column: 1; margin-top: 0.9rem; max-width: 320px; }
+  .shot { grid-column: 1; margin-top: 0.9rem; max-width: 320px; }
 }
 
 /* -------------------------------- timeline -------------------------------- */

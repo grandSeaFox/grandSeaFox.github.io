@@ -9,6 +9,9 @@ interface Props {
 
 const { projects, linked = false } = Astro.props;
 
+// Resolve parent ids to titles so a relation renders as a name, not a slug.
+const titles = new Map(projects.map((p) => [p.id, p.data.title]));
+
 // Only claim an ongoing range when there is genuinely no end date and the work
 // is still live. Status is a separate signal and renders as its own chip.
 function span(entry: CollectionEntry<'projects'>) {
@@ -24,6 +27,7 @@ function span(entry: CollectionEntry<'projects'>) {
     const props = linked ? { href: `/projects/${project.id}/` } : {};
     return (
       <Tag class:list={['project', { 'has-shot': project.data.cover }]} {...props}>
+        <div class="pbody">
         <div class="phead">
           <h3>
             {project.data.title}
@@ -33,6 +37,9 @@ function span(entry: CollectionEntry<'projects'>) {
           <span class="year">{span(project)}</span>
         </div>
         <p>{project.data.summary}</p>
+        {project.data.parent && titles.has(project.data.parent) && (
+          <div class="tags">Grew out of {titles.get(project.data.parent)}</div>
+        )}
         <div class="tags">{project.data.stack.join(' · ')}</div>
         {project.data.link && (
           <div class="tags">
@@ -41,9 +48,11 @@ function span(entry: CollectionEntry<'projects'>) {
             </a>
           </div>
         )}
+        </div>
         {project.data.cover && (
           <figure class="shot">
-            <img src={project.data.cover} alt={project.data.coverAlt ?? ''} width="900" height="506" loading="lazy" />
+            <img src={project.data.cover} alt={project.data.coverAlt ?? ''} loading="lazy" />
+            {project.data.coverNote && <figcaption>{project.data.coverNote}</figcaption>}
           </figure>
         )}
       </Tag>
