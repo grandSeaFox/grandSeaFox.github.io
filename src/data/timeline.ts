@@ -36,8 +36,14 @@ export const timeline: Entry[] = [
     type: 'stack',
   },
   {
-    when: 'May — Jul 2026',
-    what: 'Sphala · Arka · Growth Cockpit · Gonc Investing',
+    when: 'Jul 2026',
+    what: 'Growth Cockpit · Gonc Investing',
+    kind: 'Projects',
+    type: 'project',
+  },
+  {
+    when: 'May 2026',
+    what: 'Sphala · Arka',
     kind: 'Projects',
     type: 'project',
   },

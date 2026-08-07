@@ -1,6 +1,6 @@
 ---
 title: Sphala
-start: "2026"
+start: "2026-05"
 summary: >-
   Turns raw PostHog and GA4 experiment data into stakeholder-ready prose with an
   explicit ship / hold / kill call, delivered to Slack on a schedule.

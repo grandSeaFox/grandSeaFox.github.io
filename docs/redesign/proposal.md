@@ -300,9 +300,9 @@ Your CV already carries two the site is missing:
   than link a broken domain.
 
 The Tier 1/2 projects from §4 drop onto the same spine. Their dates below are inferred from
-last-push, not start date, so treat as ordering only and correct me: `notchy` (Apr 2026), `arka`
-and `sphala` (May 2026), Better Beta (Jun–Jul 2026), `overseer` and `gonc-invest` (Jul 2026),
-**GGBA (Aug 2026)**.
+repository activity rather than the day you opened an editor, so correct any that are off:
+`notchy` (Apr 2026), `sphala` and `arka` (May 2026), Better Beta (Jun 2026), Growth Cockpit and
+`gonc-invest` (Jul 2026), **GGBA (Aug 2026)**.
 
 Also unexplained: `images/port/` contains **GesEquip** screenshots (login, entry, equipment) that
 nothing on the site references and that appear on neither your CV nor GitHub. What was it? If

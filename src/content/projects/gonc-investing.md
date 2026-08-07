@@ -1,6 +1,6 @@
 ---
 title: Gonc Investing
-start: "2026"
+start: "2026-07"
 summary: >-
   Backtester and screener implementing Magic Formula, Piotroski, quality-value
   and momentum, plus a z-score composite and a walk-forward engine reporting

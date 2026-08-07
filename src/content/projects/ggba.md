@@ -1,6 +1,6 @@
 ---
 title: GGBA
-start: "2026"
+start: "2026-08"
 status: Android shipped
 summary: >-
   A Game Boy Advance emulator written from scratch in Rust, with a Jetpack
