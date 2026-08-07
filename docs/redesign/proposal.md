@@ -398,7 +398,7 @@ Your CV resolved the employment timeline, education, Melius and Stock-streamer. 
    read off disk. Commit them to `images/projects/` and the card gets artwork. *(Everything else
    about Better Beta is now settled: founded Jun 2026, iOS + Android in internal beta, three repos,
    privacy policy stays on its own domain.)*
-3. **ImoCerto** — where does it live, or a description.
+3. ~~**ImoCerto**~~ — settled. A Portuguese property portal, 20k+ listings, currently paused.
 4. ~~**Java OCP**~~ — settled. Training only, ~2021, never described as a certification.
 5. **Privacy — GGBA only.** Does the emulator collect anything at all, use analytics or crash
    reporting, phone home? I expect "nothing leaves the device", but you confirm it.

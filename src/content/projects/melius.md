@@ -9,5 +9,5 @@ summary: >-
 stack: [Angular 8, Node.js, PostgreSQL, Heroku]
 cover: ../../assets/projects/melius.jpg
 coverAlt: The Melius case list, showing pending court processes
-order: 7
+order: 8
 ---

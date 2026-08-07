@@ -6,5 +6,5 @@ summary: >-
   and momentum, plus a z-score composite and a walk-forward engine reporting
   CAGR, Sharpe, Sortino and drawdown. Runs a persistent $10k paper portfolio.
 stack: [Next.js, Hono, FastAPI, pandas, Postgres, Docker]
-order: 5
+order: 6
 ---

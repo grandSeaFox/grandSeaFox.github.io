@@ -54,6 +54,13 @@ export const timeline: Entry[] = [
     type: 'stack',
   },
   {
+    when: '2025',
+    what: 'ImoCerto',
+    kind: 'Project',
+    type: 'project',
+    where: 'A Portuguese property portal. Over 20,000 listings published. On pause.',
+  },
+  {
     when: 'Sep 2024 — Present',
     what: 'Senior Software Engineer',
     kind: 'Work',
