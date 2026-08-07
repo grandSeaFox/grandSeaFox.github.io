@@ -11,6 +11,10 @@ summary: >-
   PUTs straight to the bucket and come back resized through the CDN.
 stack: [React Native, Expo SDK 51, TypeScript, SQLite, Supabase, MapLibre, Cloudflare Workers]
 link: https://betterbeta.io
+# Uncomment once the screenshots are committed. Kept commented rather than
+# pointing at a missing file, because a broken image is worse than none.
+# cover: /images/projects/better-beta-map.jpg
+# coverAlt: The Better Beta map, showing climbing areas along the coast
 featured: true
 order: 1
 ---
