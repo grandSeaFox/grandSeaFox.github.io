@@ -323,16 +323,34 @@
   /* ---------- project list ---------- */
 
   .projects { display: flex; flex-direction: column; }
+
+  /* One column by default: no preview, no reserved space for one. */
   .project {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 1rem 2rem;
-    align-items: baseline;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0 2rem;
+    align-items: start;
     padding: 1.25rem 0;
     border-top: 1px solid var(--rule-soft);
     text-decoration: none;
   }
   .project:first-child { border-top: 0; }
+
+  /* A second column appears only for entries that actually have artwork. */
+  .project.has-shot { grid-template-columns: minmax(0, 1fr) 220px; }
+  @media (max-width: 700px) {
+    .project.has-shot { grid-template-columns: minmax(0, 1fr); }
+  }
+
+  /* Title and year share a line, bounded by the text measure, so the year
+     sits beside the prose instead of stranded at the far edge. */
+  .phead {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+    max-width: 66ch;
+  }
   a.project:hover h3 { color: var(--accent); }
   .project h3 { transition: color 0.15s ease; }
   .project p { margin-top: 0.3rem; color: var(--ink-2); font-size: var(--fs-sm); }
@@ -350,8 +368,16 @@
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
   }
-  @media (max-width: 560px) {
-    .project { grid-template-columns: 1fr; gap: 0.25rem; }
+  .shot {
+    grid-row: 1 / span 3;
+    grid-column: 2;
+    border: 1px solid var(--rule);
+    background: var(--surface);
+    padding: 4px;
+  }
+  .shot img { display: block; width: 100%; height: auto; }
+  @media (max-width: 700px) {
+    .shot { grid-row: auto; grid-column: 1; margin-top: 0.9rem; max-width: 320px; }
   }
 
   .pending {
@@ -602,65 +628,50 @@
           in this list is clickable in the mockup.</p>
 
         <div class="projects">
-          <article class="project">
-            <div>
-              <h3>Sphala</h3>
-              <p>Turns raw PostHog and GA4 experiment data into stakeholder-ready prose with an
+                    <article class="project">
+            <div class="phead"><h3>Sphala</h3><span class="year">2026</span></div>
+            <p>Turns raw PostHog and GA4 experiment data into stakeholder-ready prose with an
                 explicit ship / hold / kill call, delivered to Slack on a schedule.</p>
-              <div class="tags">Next.js 16 · Drizzle · BullMQ · Anthropic SDK · Clerk · Postgres</div>
-            </div>
-            <div class="year">2026</div>
+            <div class="tags">Next.js 16 · Drizzle · BullMQ · Anthropic SDK · Clerk · Postgres</div>
           </article>
 
-          <article class="project">
-            <div>
-              <h3>Growth Cockpit</h3>
-              <p>Pulls GA4 funnels, Clarity frustration signals and PostHog experiments on a
+                    <article class="project">
+            <div class="phead"><h3>Growth Cockpit</h3><span class="year">2026</span></div>
+            <p>Pulls GA4 funnels, Clarity frustration signals and PostHog experiments on a
                 schedule, then ranks each fresh snapshot into a prioritised action queue. Nothing
                 heavy runs on page load.</p>
-              <div class="tags">Next.js 16 · Supabase + RLS · Inngest · BigQuery</div>
-            </div>
-            <div class="year">2026</div>
+            <div class="tags">Next.js 16 · Supabase + RLS · Inngest · BigQuery</div>
           </article>
 
-          <article class="project">
-            <div>
-              <h3>Arka</h3>
-              <p>Client and internal portal for a law firm. Entra ID SSO, SharePoint integration, a
+                    <article class="project">
+            <div class="phead"><h3>Arka</h3><span class="year">2026</span></div>
+            <p>Client and internal portal for a law firm. Entra ID SSO, SharePoint integration, a
                 role and permission model with an audit layer over a dedicated data-access layer.</p>
-              <div class="tags">Next.js 16 · Auth.js v5 · Prisma 7 · Postgres</div>
-            </div>
-            <div class="year">2026</div>
+            <div class="tags">Next.js 16 · Auth.js v5 · Prisma 7 · Postgres</div>
           </article>
 
-          <article class="project">
-            <div>
-              <h3>Gonc Investing</h3>
-              <p>Backtester and screener implementing Magic Formula, Piotroski, quality-value and
+                    <article class="project">
+            <div class="phead"><h3>Gonc Investing</h3><span class="year">2026</span></div>
+            <p>Backtester and screener implementing Magic Formula, Piotroski, quality-value and
                 momentum, plus a z-score composite and a walk-forward engine reporting CAGR, Sharpe,
                 Sortino and drawdown. Runs a persistent $10k paper portfolio daily.</p>
-              <div class="tags">Next.js · Hono · FastAPI · pandas · Postgres · Docker</div>
-            </div>
-            <div class="year">2026</div>
+            <div class="tags">Next.js · Hono · FastAPI · pandas · Postgres · Docker</div>
           </article>
 
-          <article class="project">
-            <div>
-              <h3>Notchy</h3>
-              <p>A native macOS utility in Swift and SwiftUI.</p>
-              <div class="tags">Swift · SwiftUI · XCTest</div>
-            </div>
-            <div class="year">2026</div>
+                    <article class="project">
+            <div class="phead"><h3>Notchy</h3><span class="year">2026</span></div>
+            <p>A native macOS utility in Swift and SwiftUI.</p>
+            <div class="tags">Swift · SwiftUI · XCTest</div>
           </article>
 
-          <article class="project">
-            <div>
-              <h3>Melius</h3>
-              <p>An autonomous web app that notified lawyers when something changed on one of their
+                    <article class="project has-shot">
+            <div class="phead"><h3>Melius</h3><span class="year">2019 — 2022</span></div>
+            <p>An autonomous web app that notified lawyers when something changed on one of their
                 cases. Ran in production for three years at melius.pt.</p>
-              <div class="tags">Angular 8 · Node.js · PostgreSQL · Heroku</div>
-            </div>
-            <div class="year">2019 — 2022</div>
+            <div class="tags">Angular 8 · Node.js · PostgreSQL · Heroku</div>
+                      <figure class="shot">
+              <img src="data:image/jpeg;base64,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" alt="The Melius case dashboard" width="420" height="236">
+            </figure>
           </article>
         </div>
 
@@ -885,21 +896,21 @@
           GGBA needs one before it can ship.</p>
 
         <div class="projects">
-          <article class="project">
-            <div><h3>GGBA</h3><p>Android · Play Store listing requirement</p></div>
-            <div class="year">/privacy/ggba</div>
+                    <article class="project">
+            <div class="phead"><h3>GGBA</h3><span class="year">/privacy/ggba</span></div>
+            <p>Android · Play Store listing requirement</p>
           </article>
-          <article class="project">
-            <div><h3>Notchy</h3><p>macOS</p></div>
-            <div class="year">/privacy/notchy</div>
+                    <article class="project">
+            <div class="phead"><h3>Notchy</h3><span class="year">/privacy/notchy</span></div>
+            <p>macOS</p>
           </article>
-          <article class="project">
-            <div><h3>Better Beta</h3><p>Awaiting details</p></div>
-            <div class="year">/privacy/better-beta</div>
+                    <article class="project">
+            <div class="phead"><h3>Better Beta</h3><span class="year">/privacy/better-beta</span></div>
+            <p>Awaiting details</p>
           </article>
-          <article class="project">
-            <div><h3>ImoCerto</h3><p>Awaiting details</p></div>
-            <div class="year">/privacy/imocerto</div>
+                    <article class="project">
+            <div class="phead"><h3>ImoCerto</h3><span class="year">/privacy/imocerto</span></div>
+            <p>Awaiting details</p>
           </article>
         </div>
 
