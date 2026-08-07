@@ -247,16 +247,24 @@ barcode scanners, Stripe terminals), championing an AI-first workflow, mentoring
 | | |
 | --- | --- |
 | AP Degree in Computer Science (not completed) | UCN — University College Nordjylland, Aalborg, Denmark · 2017–2018 |
-| Java OCP training | ~2021, towards the end of the Climber years. **Still needed: which one (OCA or OCP, Java SE 8 or 11), and whether you sat the exam or did the training only.** |
+| Java OCP training | ~2021, towards the end of the Climber years. Training only — you sat the exam and scored 60 against a pass mark around 65, so there is no certification to claim. |
 
 Phrasing matters on both. For UCN your CV says "(Canceled)"; on the site I'd write "AP Degree in
 Computer Science — UCN Aalborg, 2017–2018 (did not complete)". Plain and unapologetic reads
 better than a parenthetical that invites a question.
 
-For OCP: if you passed, it's "Oracle Certified Professional, Java SE <version>" with the year —
-that's a credential and belongs on the spine. If it was training without the exam, it's "Java OCP
-training" and should say so. I'll write whichever is true, but I won't guess, because an
-overstated certification is the kind of thing an interviewer checks.
+**For the OCP, my recommendation is to list the training and say nothing about the exam.** The
+timeline reads "Java OCP training", labelled *Training*, never *Certification*. That is completely
+true — you did the training — and it carries the signal you want, which is that you invested in
+depth on the language you were writing every day.
+
+Volunteering the 60/100 costs you and buys nothing. Nobody expects a portfolio to enumerate exams
+not passed, so its absence isn't a lie by omission; but a reader who sees the score will remember
+the number rather than the effort. The one hard rule is the one I've already applied: it must
+never be phrased as a certification, because that's exactly the claim an interviewer verifies.
+
+If you'd rather be maximally forthcoming, the honest phrasing is "sat the OCP exam, did not pass"
+— say the word and I'll use it. I just don't think it serves you.
 
 ### Languages & tech — "first used" markers on the same spine
 
@@ -305,9 +313,10 @@ it's yours and you like it, it's a free extra card with art already in the repo.
 Structure: `/privacy` as an index, `/privacy/<app>` per app, each generated from a Markdown file
 so adding an app is one file.
 
-Candidates: **GGBA** (Google Play requires a reachable privacy policy URL for every listing —
-this is a hard blocker for shipping, not a nice-to-have), **Notchy**, **ImoCerto**, and
-**camp-mobile** if it's distributed.
+**Scope: GGBA only, for now.** Google Play requires a reachable privacy policy URL for every
+listing, so this is a hard blocker on shipping the emulator rather than a nice-to-have. The
+section is built as a Markdown collection, so Notchy or anything else is one file whenever it's
+distributed — no rework.
 
 **Better Beta is excluded on purpose.** It's a separate company with its own domain and its own
 policy at `betterbeta.io/privacy` (confirmed correct). Duplicating it here would be a liability
@@ -388,12 +397,9 @@ Your CV resolved the employment timeline, education, Melius and Stock-streamer. 
    about Better Beta is now settled: founded Jun 2026, iOS + Android in internal beta, three repos,
    privacy policy stays on its own domain.)*
 3. **ImoCerto** — where does it live, or a description.
-4. **Java OCP** — dated to ~2021 (late Climber). Still need: which certification (OCA or OCP,
-   Java SE 8 or 11) and whether you passed the exam or did the training only. Currently on the
-   timeline as "Java OCP training", labelled *Training* rather than *Certification*, which is the
-   safe reading of how you've described it — correct me if you passed it.
-5. **Privacy** — for GGBA, Notchy and ImoCerto: does it collect data, use analytics or crash
-   reporting, have accounts? (Better Beta is out of scope — its policy lives on its own domain.)
+4. ~~**Java OCP**~~ — settled. Training only, ~2021, never described as a certification.
+5. **Privacy — GGBA only.** Does the emulator collect anything at all, use analytics or crash
+   reporting, phone home? I expect "nothing leaves the device", but you confirm it.
 6. **PostHog** — project API key, EU or US, cookieless or consent banner.
 
 **Non-blocking (I'll use placeholders and you correct them):**
