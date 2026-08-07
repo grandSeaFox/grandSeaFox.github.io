@@ -199,6 +199,23 @@ p { max-width: 66ch; }
   cursor: pointer;
 }
 .nav a:hover, .nav button:hover { color: var(--ink); }
+
+/* The toggle shows the theme currently in effect: sun for light, moon for dark.
+   Both icons ship and CSS picks one, so the correct icon is right on first
+   paint — a JS swap would flash the wrong one. Mirrors the token cascade:
+   OS preference, then an explicit choice overriding it in both directions. */
+.theme-toggle { display: flex; align-items: center; }
+.theme-toggle svg { display: block; }
+.theme-toggle .moon { display: none; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .sun { display: none; }
+  :root:not([data-theme="light"]) .theme-toggle .moon { display: block; }
+}
+:root[data-theme="dark"] .theme-toggle .sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .moon { display: block; }
+:root[data-theme="light"] .theme-toggle .sun { display: block; }
+:root[data-theme="light"] .theme-toggle .moon { display: none; }
 .nav a[aria-current="page"] {
   color: var(--accent);
   border-color: var(--rule);

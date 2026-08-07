@@ -8,7 +8,7 @@ import { glob } from 'astro/loaders';
 
 const projects = defineCollection({
   loader: glob({ base: './src/content/projects', pattern: '**/*.md' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     // Set when the work carries a role worth stating (e.g. "Co-founder").
     role: z.string().optional(),
@@ -21,8 +21,9 @@ const projects = defineCollection({
     // Public URLs only. Private repos get a case study, never a dead GitHub link.
     link: z.string().url().optional(),
     repo: z.string().url().optional(),
-    // Path under /public. Entries without one render with no media column.
-    cover: z.string().optional(),
+    // Path relative to the entry, resolved to an optimized asset at build time.
+    // Entries without one render with no media column.
+    cover: image().optional(),
     coverAlt: z.string().optional(),
     // Caption under the image. Required reading when figures are illustrative
     // rather than real, so a rebuilt screenshot is never mistaken for evidence.

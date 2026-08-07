@@ -7,7 +7,7 @@ summary: >-
   schedule, then ranks each fresh snapshot into a prioritised action queue with
   an experiment ledger tracking what shipped.
 stack: [Next.js, Supabase, Inngest, BigQuery]
-cover: /images/projects/growth-cockpit.jpg
+cover: ../../assets/projects/growth-cockpit.jpg
 coverAlt: The Growth Cockpit overview, showing analysis windows, conversion tiles and the worst funnel step
 coverNote: Rebuilt with sample data — the real dashboard reports a live product.
 featured: true

@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -51,7 +52,7 @@ function span(entry: CollectionEntry<'projects'>) {
         </div>
         {project.data.cover && (
           <figure class="shot">
-            <img src={project.data.cover} alt={project.data.coverAlt ?? ''} loading="lazy" />
+            <Image src={project.data.cover} alt={project.data.coverAlt ?? ''} widths={[220, 440]} sizes="220px" loading="lazy" />
             {project.data.coverNote && <figcaption>{project.data.coverNote}</figcaption>}
           </figure>
         )}
