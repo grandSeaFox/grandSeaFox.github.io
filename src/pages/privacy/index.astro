@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const policies = (await getCollection('privacy', (p) => !p.data.draft)).sort((a, b) =>
+  a.data.app.localeCompare(b.data.app),
+);
+const pending = (await getCollection('privacy', (p) => p.data.draft)).map((p) => p.data.app);
+---
+
+<Base
+  title="Privacy policies — Gonçalo Raposeiro"
+  description="Privacy policies for apps I ship."
+  section="privacy"
+>
+  <section class="band">
+    <div class="wrap row">
+      <div class="label">Legal</div>
+      <div>
+        <h2>Privacy policies</h2>
+        <p>
+          One page per shipped app. Google Play requires a reachable privacy policy URL for every
+          listing, so GGBA needs one before it can ship.
+        </p>
+        <p class="small" style="margin-top:0.5rem">
+          Better Beta is deliberately absent. It is a separate company with its own policy at
+          <a href="https://betterbeta.io/privacy" target="_blank" rel="noopener">betterbeta.io/privacy</a>
+          — a second copy here would drift from the operative document while looking equally authoritative.
+        </p>
+
+        {policies.length > 0 && (
+          <div class="projects" style="margin-top:1.5rem">
+            {policies.map((policy) => (
+              <a class="project" href={`/privacy/${policy.id}/`}>
+                <div class="phead">
+                  <h3>{policy.data.app}</h3>
+                  <span class="year">{policy.data.updated.toISOString().slice(0, 10)}</span>
+                </div>
+                <p>{policy.data.platforms.join(' · ')}</p>
+              </a>
+            ))}
+          </div>
+        )}
+
+        {pending.length > 0 && (
+          <div class="notice">
+            <div class="label">Not published yet</div>
+            <p class="small" style="margin-top:0.4rem">
+              {pending.join(', ')} — held as a draft until the facts are confirmed. A policy that
+              misdescribes what an app collects is a legal problem, not a copy problem, so nothing
+              in it is guessed.
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+</Base>

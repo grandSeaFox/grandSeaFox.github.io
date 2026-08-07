@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ProjectList from '../../components/ProjectList.astro';
+
+const projects = (await getCollection('projects', (p) => !p.data.draft)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<Base
+  title="Projects — Gonçalo Raposeiro"
+  description="Emulators, mobile apps, growth tooling and backtesters."
+  section="projects"
+>
+  <section class="band">
+    <div class="wrap row">
+      <div class="label">Projects</div>
+      <div>
+        <h2>Things I've built</h2>
+        <p class="small">
+          Most repositories are private, so titles lead to a case study here rather than a GitHub 404.
+        </p>
+        <ProjectList projects={projects} linked={true} />
+      </div>
+    </div>
+  </section>
+</Base>

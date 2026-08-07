@@ -1,0 +1,52 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  projects: CollectionEntry<'projects'>[];
+  /** Link each title to its case study. Off until case studies exist. */
+  linked?: boolean;
+}
+
+const { projects, linked = false } = Astro.props;
+
+// Only claim an ongoing range when there is genuinely no end date and the work
+// is still live. Status is a separate signal and renders as its own chip.
+function span(entry: CollectionEntry<'projects'>) {
+  const { start, end } = entry.data;
+  const year = (v: string) => v.slice(0, 4);
+  return end ? `${year(start)} — ${year(end)}` : year(start);
+}
+---
+
+<div class="projects">
+  {projects.map((project) => {
+    const Tag = linked ? 'a' : 'article';
+    const props = linked ? { href: `/projects/${project.id}/` } : {};
+    return (
+      <Tag class:list={['project', { 'has-shot': project.data.cover }]} {...props}>
+        <div class="phead">
+          <h3>
+            {project.data.title}
+            {project.data.role && <span class="role">{project.data.role}</span>}
+            {project.data.status && <span class="chip pending">{project.data.status}</span>}
+          </h3>
+          <span class="year">{span(project)}</span>
+        </div>
+        <p>{project.data.summary}</p>
+        <div class="tags">{project.data.stack.join(' · ')}</div>
+        {project.data.link && (
+          <div class="tags">
+            <a href={project.data.link} target="_blank" rel="noopener">
+              {project.data.link.replace(/^https?:\/\//, '')} ↗
+            </a>
+          </div>
+        )}
+        {project.data.cover && (
+          <figure class="shot">
+            <img src={project.data.cover} alt={project.data.coverAlt ?? ''} width="900" height="506" loading="lazy" />
+          </figure>
+        )}
+      </Tag>
+    );
+  })}
+</div>

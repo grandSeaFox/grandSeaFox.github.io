@@ -8,3 +8,9 @@
 /dataSources.local.xml
 
 /.idea*
+# Astro
+node_modules/
+dist/
+.astro/
+.env
+.env.production
