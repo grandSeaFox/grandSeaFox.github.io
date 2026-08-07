@@ -4,12 +4,10 @@ role: Co-founder
 start: "2026-06"
 status: Internal beta
 summary: >-
-  A bouldering and sport-climbing app for iOS and Android. Offline-first by
-  design: an on-device SQLite cache backed by Supabase Postgres with row-level
-  security, and a sync layer between them, so the map still works with no signal
-  at the crag. Photos upload through a Cloudflare Worker that mints presigned
-  PUTs straight to the bucket and come back resized through the CDN.
-stack: [React Native, Expo SDK 51, TypeScript, SQLite, Supabase, MapLibre, Cloudflare Workers]
+  A bouldering app for iOS and Android. A map of areas and routes that keeps
+  working offline at the crag, send logging with grade confirmation, route
+  photos, XP, leaderboards and achievements.
+stack: [React Native, Expo, TypeScript, SQLite, Supabase, MapLibre, Cloudflare]
 link: https://betterbeta.io
 # Uncomment once the screenshots are committed. Kept commented rather than
 # pointing at a missing file, because a broken image is worse than none.

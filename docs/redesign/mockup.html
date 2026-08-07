@@ -642,16 +642,12 @@
         <div class="projects">
                     <article class="project">
             <div class="phead"><h3>Better Beta <span class="role">Co-founder</span></h3><span class="year">Jun 2026 — Present</span></div>
-            <p>A bouldering and sport-climbing app for iOS and Android, currently in internal beta.
-              Offline-first by design: an on-device SQLite cache backed by Supabase Postgres with
-              row-level security, and a sync layer between them, so the map still works with no
-              signal at the crag. Photos upload through a Cloudflare Worker that mints presigned
-              PUTs straight to the bucket and come back resized through the CDN. MapLibre map of
-              areas and routes, send logging with grade confirmation, XP, leaderboards and
-              achievements.</p>
+            <p>A bouldering app for iOS and Android, currently in internal beta. A map of
+              areas and routes that keeps working offline at the crag, send logging with grade
+              confirmation, route photos, XP, leaderboards and achievements.</p>
             <p>Three services, not one app: the client, a data-ingestion pipeline behind it, and the
               waiting-list site that feeds the beta.</p>
-            <div class="tags">React Native · Expo SDK 51 · TypeScript · SQLite · Supabase · MapLibre · Cloudflare Workers</div>
+            <div class="tags">React Native · Expo · TypeScript · SQLite · Supabase · MapLibre · Cloudflare</div>
             <div class="tags"><a href="https://betterbeta.io" target="_blank" rel="noopener">betterbeta.io ↗</a></div>
           </article>
                     <article class="project">
@@ -666,14 +662,14 @@
             <p>Pulls GA4 funnels, Clarity frustration signals and PostHog experiments on a
                 schedule, then ranks each fresh snapshot into a prioritised action queue. Nothing
                 heavy runs on page load.</p>
-            <div class="tags">Next.js 16 · Supabase + RLS · Inngest · BigQuery</div>
+            <div class="tags">Next.js · Supabase · Inngest · BigQuery</div>
           </article>
 
                     <article class="project">
             <div class="phead"><h3>Arka</h3><span class="year">2026</span></div>
-            <p>Client and internal portal for a law firm. Entra ID SSO, SharePoint integration, a
-                role and permission model with an audit layer over a dedicated data-access layer.</p>
-            <div class="tags">Next.js 16 · Auth.js v5 · Prisma 7 · Postgres</div>
+            <p>A portal for a law firm — one side for clients, one for staff. Case and document
+                access, single sign-on, and per-role views of the same material.</p>
+            <div class="tags">Next.js · Auth.js · Prisma · Postgres</div>
           </article>
 
                     <article class="project">

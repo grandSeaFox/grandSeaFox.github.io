@@ -108,14 +108,15 @@ the intended OVH production topology. Product thinking + LLM work + infrastructu
 project.
 
 **3. Better Beta — `better-beta/better-beta`, `better-send`, `beta-list`** · founded Jun 2026
-A bouldering and sport-climbing app for iOS and Android, in internal beta. React Native (Expo SDK 51,
-Expo Router) in TypeScript. The interesting part is the data architecture: an on-device SQLite
-cache is the read path, Supabase Postgres with row-level security is the source of truth, and a
-sync layer reconciles them — which is the correct call for an app used at a crag with no signal.
-Photos upload via a Cloudflare Worker that verifies the Supabase JWT and mints a presigned PUT
-straight to S3/Hetzner, then serve back through the CDN with Cloudflare Image Resizing so each
-surface gets an appropriately sized asset. MapLibre map of areas and routes, send logging with
-grade confirmation, XP, leaderboards, achievements.
+A bouldering app for iOS and Android, in internal beta. React Native (Expo) in TypeScript, with
+a MapLibre map of areas and routes that keeps working offline at the crag, send logging with
+grade confirmation, route photos, XP, leaderboards and achievements. Supabase and Cloudflare
+behind it.
+
+**Deliberately light on architecture.** The card names features and tools and stops there. How
+auth, storage and permissions are actually wired is not something a portfolio needs to publish —
+it is free reconnaissance for anyone probing a live product, and it reads as detail rather than
+judgement. Save it for the interview, where it lands better anyway.
 
 **You co-founded it, and that changes how it should be presented.** It isn't a personal project
 in a list of personal projects — it's a company you helped start, with its own domain, its own
@@ -161,7 +162,7 @@ repo or paste a description and I'll write the card from that.**
 Internal Next.js 16 app that live-pulls ParkWithUs growth data (GA4 funnel via BigQuery,
 Microsoft Clarity frustration signals, PostHog experiments), has an LLM rank each fresh snapshot
 into a prioritized action queue, and tracks experiment results over time. Scheduled Inngest jobs
-→ Supabase → pre-computed rows, so nothing heavy runs on page load. Supabase Auth with RLS.
+→ Supabase → pre-computed rows, so nothing heavy runs on page load.
 
 This is the single most on-message project if you're positioning as a **growth** engineer, and
 it pairs neatly with the PostHog instrumentation you're adding to this very site — that's a nice
@@ -176,9 +177,10 @@ line in the blog post announcing the redesign.
   A daily scheduler runs a persistent $10k paper portfolio. Good polyglot signal (TS + Python).
   Its README is honest about the point-in-time bias in yfinance fundamentals — worth keeping that
   candour in the case study, it reads as maturity.
-- **`arka`** — Client-facing and internal portal for a law firm. Next.js 16, Auth.js v5, Prisma 7,
-  Postgres, Microsoft Entra ID SSO, SharePoint integration, role/permission model with an audit
-  layer and a data-access layer. This is your "real client work with real auth requirements" card.
+- **`arka`** — A portal for a law firm, client side and staff side, built on Next.js, Auth.js,
+  Prisma and Postgres. Real client work with real access-control requirements — described at
+  that level and no further, since the security posture belongs to the client, not to your
+  portfolio.
 - **`notchy`** — macOS app in Swift/SwiftUI (Xcode project, with a test target). Adds native-desktop
   breadth next to the Android and web work.
 - **`camp-mobile`**, **`alora`**, **`home-helper`**, **`kabanza_frontend`/`_backend`** — optional
