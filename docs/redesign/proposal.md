@@ -108,10 +108,29 @@ the intended OVH production topology. Product thinking + LLM work + infrastructu
 project.
 
 **3. Better Beta — `better-beta/better-beta`, `better-send`, `beta-list`**
-You named it, but it lives under the `better-beta` org and this session can only reach repos
-owned by `grandSeaFox`, so I couldn't read it. **I need two or three sentences from you.**
-Worth featuring specifically because it's three repos under one org — that reads as a product
-with a surface area, not a weekend project.
+A bouldering and sport-climbing app, shipped and running on device. React Native (Expo SDK 51,
+Expo Router) in TypeScript. The interesting part is the data architecture: an on-device SQLite
+cache is the read path, Supabase Postgres with row-level security is the source of truth, and a
+sync layer reconciles them — which is the correct call for an app used at a crag with no signal.
+Photos upload via a Cloudflare Worker that verifies the Supabase JWT and mints a presigned PUT
+straight to S3/Hetzner, then serve back through the CDN with Cloudflare Image Resizing so each
+surface gets an appropriately sized asset. MapLibre map of areas and routes, send logging with
+grade confirmation, XP, leaderboards, achievements.
+
+Three reasons this belongs near the top, above Sphala:
+
+- It's a **product with users**, not a repo. The screenshots show real sends logged against real
+  routes on the Portuguese coast.
+- Three repos under one org (`better-beta`, `better-send`, `beta-list`) reads as a surface area,
+  not a weekend project.
+- **It's your only mobile app besides GGBA's Android shell**, and it's the one non-engineer
+  visitors can immediately understand. GGBA proves depth; Better Beta proves you ship things
+  people use.
+
+Note for the case study: the README says the map is "a stylized SVG… for production swap to
+MapLibre/Mapbox", but the screenshot clearly shows MapLibre attribution. You've done the swap and
+the README hasn't caught up. I've written the card against the screenshots, since that's the
+current truth — flag it if I've read that wrong.
 
 **4. ImoCerto**
 You named it and I couldn't find it. It isn't in the repo list I can see, and a GitHub search
@@ -341,13 +360,21 @@ Your CV resolved the employment timeline, education, Melius and Stock-streamer. 
 **Blocking:**
 
 1. **Option A (Astro) or Option B (in-place HTML)?**
-2. **Better Beta** — 2–3 sentences on what it is, and which of the three repos to lead with.
+2. **Better Beta screenshots** — the two you sent came through as inline images, not as files I
+   can read off disk, so I can't inline them as previews. Commit them to `images/projects/` on the
+   branch and the card gets artwork. Also: which of the three repos leads, and what are
+   `better-send` and `beta-list`?
 3. **ImoCerto** — where does it live, or a description.
 4. **Java OCP** — dated to ~2021 (late Climber). Still need: which certification (OCA or OCP,
    Java SE 8 or 11) and whether you passed the exam or did the training only. Currently on the
    timeline as "Java OCP training", labelled *Training* rather than *Certification*, which is the
    safe reading of how you've described it — correct me if you passed it.
 5. **Privacy** — per app: does it collect data, use analytics or crash reporting, have accounts?
+   Better Beta is the one that actually needs care: it has accounts (Supabase Auth with Google,
+   Apple and GitHub OAuth), stores user photos in a bucket behind a CDN, and records climb
+   locations. That's personal data under GDPR, held by a processor, about EU users. I need the
+   retention period, whether deleting an account purges the images, and whether any analytics or
+   crash reporting is wired in.
 6. **PostHog** — project API key, EU or US, cookieless or consent banner.
 
 **Non-blocking (I'll use placeholders and you correct them):**

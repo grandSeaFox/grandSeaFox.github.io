@@ -629,6 +629,16 @@
 
         <div class="projects">
                     <article class="project">
+            <div class="phead"><h3>Better Beta</h3><span class="year">2026</span></div>
+            <p>A bouldering and sport-climbing app. Offline-first by design: an on-device SQLite
+              cache backed by Supabase Postgres with row-level security, and a sync layer between
+              them, so the map still works with no signal at the crag. Photos upload through a
+              Cloudflare Worker that mints presigned PUTs straight to the bucket and come back
+              resized through the CDN. MapLibre map of areas and routes, send logging with grade
+              confirmation, XP, leaderboards and achievements.</p>
+            <div class="tags">React Native · Expo SDK 51 · TypeScript · SQLite · Supabase · MapLibre · Cloudflare Workers</div>
+          </article>
+                    <article class="project">
             <div class="phead"><h3>Sphala</h3><span class="year">2026</span></div>
             <p>Turns raw PostHog and GA4 experiment data into stakeholder-ready prose with an
                 explicit ship / hold / kill call, delivered to Slack on a schedule.</p>
@@ -676,11 +686,11 @@
         </div>
 
         <div class="pending">
-          <div class="label">Two slots reserved</div>
-          <p class="small" style="margin-top:0.4rem">Better Beta and ImoCerto go here. I could not
-            read either — Better Beta sits under a different GitHub owner than this session can
-            reach, and ImoCerto is not in your repository list at all. Send me a few sentences on
-            each and they drop straight into this list.</p>
+          <div class="label">One slot reserved · screenshots wanted</div>
+          <p class="small" style="margin-top:0.4rem">ImoCerto still goes here — it isn't in your
+            repository list at all, so send me a description. Better Beta needs its two app
+            screenshots committed to the repo before it can carry a preview: drop them in
+            <code>images/projects/</code> and it gets the same treatment as Melius below.</p>
         </div>
       </div>
     </div>
@@ -906,7 +916,7 @@
           </article>
                     <article class="project">
             <div class="phead"><h3>Better Beta</h3><span class="year">/privacy/better-beta</span></div>
-            <p>Awaiting details</p>
+            <p>iOS + Android · accounts, user photos, climb locations — the longest policy of the four</p>
           </article>
                     <article class="project">
             <div class="phead"><h3>ImoCerto</h3><span class="year">/privacy/imocerto</span></div>
@@ -921,6 +931,12 @@
             use analytics or crash reporting, does it have accounts, does it phone home? For GGBA I
             expect the honest answer is close to "nothing leaves the device" — which makes for a
             short, strong policy. You confirm it, I won't assume.</p>
+          <p class="small" style="margin-top:0.6rem">Better Beta is the one that genuinely needs
+            care. Its README already tells me it has accounts (Supabase Auth, with Google, Apple and
+            GitHub OAuth), stores user-uploaded photos in a bucket behind a CDN, and records climb
+            locations. That is personal data under GDPR, held by a processor, about EU users. What I
+            still need from you: retention period, whether account deletion purges the images, and
+            whether any analytics or crash reporting is wired in.</p>
         </div>
       </div>
     </div>
