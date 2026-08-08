@@ -39,7 +39,7 @@ const filters = [
       chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
       entries.forEach((li) => {
         const type = li.dataset.type;
-        // The between-roles entry belongs with Work — it is what filled the gap.
+        // The between-roles entry belongs with Work. It is what filled the gap.
         li.hidden = !(filter === 'all' || type === filter || (filter === 'work' && type === 'gap'));
       });
     });

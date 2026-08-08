@@ -19,7 +19,7 @@ const { Content } = await render(policy);
         <div style="margin-top:0.3rem">{policy.data.updated.toISOString().slice(0, 10)}</div>
       </div>
       <div>
-        <h2>{policy.data.app} — privacy policy</h2>
+        <h2>{policy.data.app} privacy policy</h2>
         <p class="small">{policy.data.platforms.join(' · ')}</p>
         <div class="prose" style="margin-top:1.5rem"><Content /></div>
       </div>

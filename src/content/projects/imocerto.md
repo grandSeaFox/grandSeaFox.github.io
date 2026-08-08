@@ -18,5 +18,5 @@ It published over 20,000 properties. A scheduled job pulled listings from
 public auction sites, tidied them up and indexed them. Keeping that many
 listings current was most of the work.
 
-<!-- TODO: case study. Worth covering — the ingestion schedule, how listings
+<!-- TODO: case study. Worth covering: the ingestion schedule, how listings
      were deduplicated across sources, and what search over 20k rows needed. -->

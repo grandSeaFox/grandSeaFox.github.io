@@ -16,5 +16,5 @@ order: 0
 It runs about 8× faster than the real hardware on a desktop, and holds 60 fps
 on a Pixel 8 Pro using roughly 1.3 of 8 cores. 270 tests, no clippy warnings.
 
-<!-- TODO: case study. The strongest technical artefact here — why an
+<!-- TODO: case study. The strongest technical artefact here. Why an
      interpreter rather than a JIT, and how the CPU was validated. -->

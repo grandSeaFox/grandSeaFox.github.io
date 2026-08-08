@@ -9,7 +9,7 @@ const pending = (await getCollection('privacy', (p) => p.data.draft)).map((p) =>
 ---
 
 <Base
-  title="Privacy policies — Gonçalo Raposeiro"
+  title="Privacy policies | Gonçalo Raposeiro"
   description="Privacy policies for apps I ship."
   section="privacy"
 >
@@ -45,9 +45,7 @@ const pending = (await getCollection('privacy', (p) => p.data.draft)).map((p) =>
           <div class="notice">
             <div class="label">Not published yet</div>
             <p class="small" style="margin-top:0.4rem">
-              {pending.join(', ')} — held as a draft until the facts are confirmed. A policy that
-              misdescribes what an app collects is a legal problem, not a copy problem, so nothing
-              in it is guessed.
+              {pending.join(', ')}. Held as a draft until the facts are confirmed.
             </p>
           </div>
         )}

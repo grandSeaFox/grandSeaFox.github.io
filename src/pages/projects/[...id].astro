@@ -12,12 +12,12 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
-<Base title={`${project.data.title} — Gonçalo Raposeiro`} description={project.data.summary} section="projects">
+<Base title={`${project.data.title} | Gonçalo Raposeiro`} description={project.data.summary} section="projects">
   <section class="band">
     <div class="wrap row">
       <div class="label">
         {project.data.start.slice(0, 4)}
-        {project.data.end && ` — ${project.data.end.slice(0, 4)}`}
+        {project.data.end && `–${project.data.end.slice(0, 4)}`}
       </div>
       <div>
         <h2>

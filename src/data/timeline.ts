@@ -17,13 +17,13 @@ export interface Entry {
 export const timeline: Entry[] = [
   {
     when: 'Aug 2026',
-    what: 'GGBA — Game Boy Advance emulator',
+    what: 'GGBA, a Game Boy Advance emulator',
     kind: 'Project',
     type: 'project',
     where: 'Rust and Android. 270 tests, 60 fps on device.',
   },
   {
-    when: 'Jun 2026 — Present',
+    when: 'Jun 2026–Present',
     what: 'Co-founder',
     kind: 'Work',
     type: 'work',
@@ -61,7 +61,7 @@ export const timeline: Entry[] = [
     where: 'A Portuguese property portal. Over 20,000 listings published. On pause.',
   },
   {
-    when: 'Sep 2024 — Present',
+    when: 'Sep 2024–Present',
     what: 'Senior Software Engineer',
     kind: 'Work',
     type: 'work',
@@ -69,7 +69,7 @@ export const timeline: Entry[] = [
     bullets: [
       'Own product features end to end across React, Ruby on Rails and TypeScript.',
       'Modernised an aging codebase, introducing engineering standards that lifted quality and reliability.',
-      'Drove the shift to a product-led approach — instrumented features with analytics and A/B testing.',
+      'Drove the shift to a product-led approach, instrumenting features with analytics and A/B testing.',
       'Built integrations with physical devices: thermal printers, barcode scanners, Stripe terminals.',
       'Championed an AI-first development workflow; mentored engineers on review practice.',
     ],
@@ -81,7 +81,7 @@ export const timeline: Entry[] = [
     type: 'stack',
   },
   {
-    when: 'Apr — Sep 2024',
+    when: 'Apr–Sep 2024',
     what: 'Independent projects',
     kind: 'Between roles',
     type: 'gap',
@@ -89,7 +89,7 @@ export const timeline: Entry[] = [
       'Bun vs Node benchmark, stock-streamer, a supermarket price scraper in Go, Kabanza, and a Next.js 14 onboarding walkthrough.',
   },
   {
-    when: 'Apr 2023 — Apr 2024',
+    when: 'Apr 2023–Apr 2024',
     what: 'Senior Growth Software Engineer',
     kind: 'Work',
     type: 'work',
@@ -108,7 +108,7 @@ export const timeline: Entry[] = [
     where: 'Node, Express, MongoDB, Docker, Nginx, Portainer.',
   },
   {
-    when: 'Nov 2021 — Apr 2023',
+    when: 'Nov 2021–Apr 2023',
     what: 'Fullstack Software Engineer',
     kind: 'Work',
     type: 'work',
@@ -125,7 +125,7 @@ export const timeline: Entry[] = [
     kind: 'Training',
     type: 'education',
     where:
-      'Towards the end of the Climber years, alongside the Java and Spring work. Training only — not a certification.',
+      'Towards the end of the Climber years, alongside the Java and Spring work. Training only, not a certification.',
   },
   {
     when: '2021',
@@ -134,14 +134,14 @@ export const timeline: Entry[] = [
     type: 'stack',
   },
   {
-    when: 'Jun 2019 — Sep 2022',
+    when: 'Jun 2019–Sep 2022',
     what: 'Melius',
     kind: 'Project',
     type: 'project',
     where: 'Case-change notifications for lawyers. Angular 8, Node, PostgreSQL.',
   },
   {
-    when: 'Sep 2018 — Nov 2021',
+    when: 'Sep 2018–Nov 2021',
     what: 'Junior Software Engineer',
     kind: 'Work',
     type: 'work',
@@ -159,14 +159,14 @@ export const timeline: Entry[] = [
     type: 'stack',
   },
   {
-    when: '2017 — 2018',
+    when: '2017–2018',
     what: 'AP Degree, Computer Science',
     kind: 'Education',
     type: 'education',
-    where: 'UCN — University College Nordjylland, Aalborg, Denmark. Did not complete.',
+    where: 'UCN, University College Nordjylland, Aalborg, Denmark. Did not complete.',
   },
   {
-    when: 'Sep 2016 — Jan 2017',
+    when: 'Sep 2016–Jan 2017',
     what: 'Retail',
     kind: 'Work',
     type: 'work',

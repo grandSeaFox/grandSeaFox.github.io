@@ -9,7 +9,7 @@ summary: >-
 stack: [Next.js, Supabase, Inngest, BigQuery]
 cover: ../../assets/projects/growth-cockpit.jpg
 coverAlt: The Growth Cockpit overview, showing analysis windows, conversion tiles and the worst funnel step
-coverNote: Rebuilt with sample data — the real dashboard reports a live product.
+coverNote: Rebuilt with sample data. The real dashboard reports a live product.
 featured: true
 order: 2
 ---

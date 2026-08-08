@@ -3,7 +3,7 @@ import { glob } from 'astro/loaders';
 
 /**
  * Three collections, one file per entry. Adding a project, a post or a policy
- * means dropping a Markdown file in the right folder — no page to wire up.
+ * means dropping a Markdown file in the right folder. No page to wire up.
  */
 
 const projects = defineCollection({

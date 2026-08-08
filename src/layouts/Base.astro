@@ -12,7 +12,7 @@ const { title, description, section = 'home' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 
 // Public write-only key. Absent in local dev and in forks, in which case no
-// analytics script is emitted at all — the page must never depend on it.
+// analytics script is emitted at all. The page must never depend on it.
 const posthogKey = import.meta.env.PUBLIC_POSTHOG_KEY;
 const posthogHost = import.meta.env.PUBLIC_POSTHOG_HOST ?? 'https://eu.i.posthog.com';
 
@@ -48,7 +48,7 @@ const nav = [
           if (stored === 'dark' || stored === 'light') {
             document.documentElement.dataset.theme = stored;
           }
-        } catch (e) { /* private mode — fall back to the OS preference */ }
+        } catch (e) { /* private mode, fall back to the OS preference */ }
       })();
     </script>
 

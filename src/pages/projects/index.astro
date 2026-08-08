@@ -9,7 +9,7 @@ const projects = (await getCollection('projects', (p) => !p.data.draft)).sort(
 ---
 
 <Base
-  title="Projects — Gonçalo Raposeiro"
+  title="Projects | Gonçalo Raposeiro"
   description="Emulators, mobile apps, growth tooling and backtesters."
   section="projects"
 >
@@ -19,7 +19,7 @@ const projects = (await getCollection('projects', (p) => !p.data.draft)).sort(
       <div>
         <h2>Things I've built</h2>
         <p class="small">
-          Most repositories are private, so titles lead to a case study here rather than a GitHub 404.
+          Most repos are private, so the links go to write-ups here instead of GitHub.
         </p>
         <ProjectList projects={projects} linked={true} />
       </div>
