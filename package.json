@@ -3,6 +3,9 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -10,8 +13,11 @@
     "check": "astro check"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.7",
-    "@astrojs/sitemap": "^3.2.1",
-    "astro": "^5.1.1"
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.2.0"
+  },
+  "overrides": {
+    "sharp": "^0.35.0"
   }
 }
