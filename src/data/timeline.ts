@@ -31,7 +31,7 @@ export const timeline: Entry[] = [
   },
   {
     when: '2026',
-    what: 'Rust · MCP · Anthropic SDK · Drizzle · BullMQ · Supabase · Inngest',
+    what: 'Rust · MCP · Anthropic SDK · Drizzle · BullMQ · Inngest',
     kind: 'Stack',
     type: 'stack',
   },
@@ -49,7 +49,7 @@ export const timeline: Entry[] = [
   },
   {
     when: '2025',
-    what: 'Swift · SwiftUI',
+    what: 'Swift · SwiftUI · Supabase',
     kind: 'Stack',
     type: 'stack',
   },
