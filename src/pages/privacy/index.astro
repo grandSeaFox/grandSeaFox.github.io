@@ -19,21 +19,26 @@ const pending = (await getCollection('privacy', (p) => p.data.draft)).map((p) =>
       <div>
         <h2>Privacy policies</h2>
         <p>
-          One page per app I ship. Google Play needs a reachable privacy policy URL on every
-          listing, so this is where they live.
-        </p>
-        <p class="small" style="margin-top:0.5rem">
-          Better Beta is not here. It is a separate company and its policy lives at
-          <a href="https://betterbeta.io/privacy" target="_blank" rel="noopener">betterbeta.io/privacy</a>.
+          Privacy policies for the apps I ship. Google Play needs a reachable URL on every
+          listing, so this is where they are collected.
         </p>
 
         {policies.length > 0 && (
           <div class="projects" style="margin-top:1.5rem">
             {policies.map((policy) => (
-              <a class="project" href={`/privacy/${policy.id}/`}>
+              <a
+                class="project"
+                href={policy.data.external ?? `/privacy/${policy.id}/`}
+                target={policy.data.external ? '_blank' : undefined}
+                rel={policy.data.external ? 'noopener' : undefined}
+              >
                 <div class="phead">
                   <h3>{policy.data.app}</h3>
-                  <span class="year">{policy.data.updated.toISOString().slice(0, 10)}</span>
+                  <span class="year">
+                    {policy.data.external
+                      ? `${policy.data.external.replace(/^https?:\/\//, '')} ↗`
+                      : policy.data.updated?.toISOString().slice(0, 10)}
+                  </span>
                 </div>
                 <p>{policy.data.platforms.join(' · ')}</p>
               </a>

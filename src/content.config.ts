@@ -52,8 +52,12 @@ const privacy = defineCollection({
   schema: z.object({
     app: z.string(),
     platforms: z.array(z.string()).default([]),
-    updated: z.date(),
+    // Absent for policies hosted elsewhere: their date is not mine to state.
+    updated: z.date().optional(),
     summary: z.string(),
+    // Set when the policy lives on another domain. The entry then links out
+    // and no page is generated for it here.
+    external: z.string().url().optional(),
     draft: z.boolean().default(false),
   }),
 });

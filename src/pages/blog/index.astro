@@ -16,15 +16,16 @@ const posts = (await getCollection('blog', (p) => !p.data.draft)).sort(
     <div class="wrap row">
       <div class="label">Writing</div>
       <div>
-        <h2>Blog</h2>
-        <p>Notes on emulation, growth engineering, and things that turned out harder than expected.</p>
+        <h2>Blog <span class="chip pending">Work in progress</span></h2>
+        <p>Notes on emulation, growth engineering, and things that turned out harder than expected.
+          Nothing published yet.</p>
 
         {posts.length === 0 ? (
           <div class="notice">
-            <div class="label">Nothing published yet</div>
+            <div class="label">Work in progress</div>
             <p class="small" style="margin-top:0.4rem">
-              Drafts exist in <code>src/content/blog/</code>. Setting <code>draft: false</code> on one
-              publishes it, and it appears here, in the RSS feed and on the home page at the same time.
+              First posts are being written. Check back, or subscribe to the
+              <a href="/rss.xml">feed</a>.
             </p>
           </div>
         ) : (

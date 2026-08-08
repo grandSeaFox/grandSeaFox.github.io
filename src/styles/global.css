@@ -252,6 +252,9 @@ p { max-width: 66ch; }
   gap: 1.5rem;
   max-width: 66ch;
 }
+/* Some lists make the whole row a link. Those must not underline wholesale. */
+a.project { text-decoration: none; }
+a.project:hover h3 { color: var(--accent); }
 .phead h3 a {
   text-decoration: none;
   text-underline-offset: 4px;
