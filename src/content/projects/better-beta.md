@@ -9,10 +9,8 @@ summary: >-
   photos, XP, leaderboards and achievements.
 stack: [React Native, Expo, TypeScript, SQLite, Supabase, MapLibre, Cloudflare]
 link: https://betterbeta.io
-# Uncomment once the screenshots are committed. Kept commented rather than
-# pointing at a missing file, because a broken image is worse than none.
-# cover: /images/projects/better-beta-map.jpg
-# coverAlt: The Better Beta map, showing climbing areas along the coast
+cover: ../../assets/projects/better-beta.webp
+coverAlt: Two Better Beta screens — the map of climbing areas, and a climber's profile with sends and boulder plans
 featured: true
 order: 1
 ---
