@@ -22,4 +22,5 @@ src/pages/              routes
 src/styles/global.css   every design token
 src/assets/projects/    web-sized cover images
 images/projects/        full-size source screenshots, not served
+public/                 favicon.png and anything else served at the root as-is
 ```

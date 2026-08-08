@@ -34,6 +34,11 @@ const nav = [
     <link rel="canonical" href={canonical} />
     <link rel="alternate" type="application/rss+xml" title="Gonçalo Raposeiro" href="/rss.xml" />
 
+    <!-- One square PNG, scaled by the browser. It lives in public/, so the path
+         is served as-is and never goes through the asset pipeline. -->
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="any" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
