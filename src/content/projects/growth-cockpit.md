@@ -14,5 +14,5 @@ featured: true
 order: 2
 ---
 
-Where Sphala reads one experiment and writes the verdict, the Cockpit watches
-the whole funnel and decides what to test next.
+Sphala came first and only looks at one experiment at a time. This one reads
+the whole funnel and picks what to test.

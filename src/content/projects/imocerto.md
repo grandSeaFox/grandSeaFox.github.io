@@ -14,10 +14,9 @@ featured: true
 order: 4
 ---
 
-Over 20,000 properties published. Listings are ingested on a schedule from
-public auction sources, enriched, and indexed for search — the interesting
-problem was never the front end, it was keeping twenty thousand records fresh
-and findable.
+Over 20,000 properties published. Most of the work went into ingestion and
+search: pulling listings from public auction sources on a schedule, then keeping
+them current and findable.
 
 <!-- TODO: case study. Worth covering — the ingestion schedule, how listings
      were deduplicated across sources, and what search over 20k rows needed. -->

@@ -15,8 +15,8 @@ featured: true
 order: 1
 ---
 
-Three services, not one app: the client, a data-ingestion pipeline behind it,
-and the waiting-list site that feeds the beta.
+The app is one of three repos. The other two are the service that feeds it
+data and the waiting-list site.
 
 <!-- TODO: case study. Worth covering — why offline-first was non-negotiable for
      an app used at a crag, and how the sync layer resolves conflicts. -->
