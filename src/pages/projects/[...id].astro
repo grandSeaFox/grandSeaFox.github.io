@@ -10,15 +10,17 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
+
+const year = (v: string) => v.slice(0, 4);
+const span = project.data.end
+  ? `${year(project.data.start)}–${year(project.data.end)}`
+  : year(project.data.start);
 ---
 
 <Base title={`${project.data.title} | Gonçalo Raposeiro`} description={project.data.summary} section="projects">
   <section class="band">
     <div class="wrap row">
-      <div class="label">
-        {project.data.start.slice(0, 4)}
-        {project.data.end && `–${project.data.end.slice(0, 4)}`}
-      </div>
+      <div class="label">{span}</div>
       <div>
         <h2>
           {project.data.title}
