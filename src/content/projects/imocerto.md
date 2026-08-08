@@ -8,6 +8,9 @@ summary: >-
   whole country, saved favourites, alerts by email, and a back office for
   managing what gets published.
 stack: [Next.js, Hono, TypeScript, Drizzle, PostgreSQL, Socket.IO, AWS S3, Cheerio]
+cover: ../../assets/projects/imocerto.jpg
+coverAlt: The ImoCerto auction search, with listing cards beside a clustered map of Portugal
+coverNote: Rebuilt with placeholder listings — the real photos belong to the auction houses.
 featured: true
 order: 4
 ---
