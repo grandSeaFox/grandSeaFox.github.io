@@ -31,7 +31,7 @@ export const timeline: Entry[] = [
   },
   {
     when: '2026',
-    what: 'Rust · Anthropic SDK · Drizzle · BullMQ',
+    what: 'Rust · MCP · Anthropic SDK · Drizzle · BullMQ · Supabase · Inngest',
     kind: 'Stack',
     type: 'stack',
   },
@@ -76,7 +76,7 @@ export const timeline: Entry[] = [
   },
   {
     when: '2024',
-    what: 'Ruby on Rails · PHP · AWS · Stripe · Amplitude · PostHog · BigQuery · Go',
+    what: 'Ruby on Rails · PHP · Laravel · AWS · Stripe · CircleCI · WebSockets · Amplitude · PostHog · BigQuery · Go',
     kind: 'Stack',
     type: 'stack',
   },
@@ -105,7 +105,7 @@ export const timeline: Entry[] = [
     what: 'Stock-streamer',
     kind: 'Project',
     type: 'project',
-    where: 'Node, Express, MongoDB, Docker, Nginx, Portainer.',
+    where: 'Node, Express, MongoDB, Google Sheets API, Docker, Nginx, Portainer.',
   },
   {
     when: 'Nov 2021–Apr 2023',
@@ -114,6 +114,7 @@ export const timeline: Entry[] = [
     type: 'work',
     where: 'Nokia · Lisbon',
     bullets: [
+      'Led the front-end team.',
       'Designed and built new interfaces and React components.',
       'Re-architected project components for maintainability and scale.',
       'Ran training sessions and mentored new team members.',
@@ -129,7 +130,13 @@ export const timeline: Entry[] = [
   },
   {
     when: '2021',
-    what: 'TypeScript · React · Next.js · Angular · Kubernetes · Docker',
+    what: 'TypeScript · React · Next.js · Angular · Redux · Cassandra · Kafka · WebRTC · Azure · Kubernetes · Docker',
+    kind: 'Stack',
+    type: 'stack',
+  },
+  {
+    when: '2019',
+    what: 'Node.js · Angular 8 · Heroku · Segment · Hotjar',
     kind: 'Stack',
     type: 'stack',
   },
@@ -154,7 +161,7 @@ export const timeline: Entry[] = [
   },
   {
     when: '2018',
-    what: 'Java · Spring · AngularJS · PostgreSQL',
+    what: 'Java · Spring · Hibernate · Liquibase · AngularJS · JavaScript · HTML · CSS · Bootstrap · PostgreSQL · MySQL · Git · Python',
     kind: 'Stack',
     type: 'stack',
   },
