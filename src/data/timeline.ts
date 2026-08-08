@@ -49,7 +49,7 @@ export const timeline: Entry[] = [
   },
   {
     when: '2025',
-    what: 'Swift · SwiftUI · Supabase',
+    what: 'Swift · SwiftUI',
     kind: 'Stack',
     type: 'stack',
   },
@@ -76,7 +76,7 @@ export const timeline: Entry[] = [
   },
   {
     when: '2024',
-    what: 'Ruby on Rails · PHP · Laravel · AWS · Stripe · CircleCI · WebSockets · Amplitude · PostHog · BigQuery · Go',
+    what: 'Ruby on Rails · PHP · Laravel · AWS · Supabase · Stripe · CircleCI · WebSockets · Amplitude · PostHog · BigQuery · Go',
     kind: 'Stack',
     type: 'stack',
   },
