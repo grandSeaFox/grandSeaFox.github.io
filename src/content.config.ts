@@ -19,8 +19,8 @@ const projects = defineCollection({
     summary: z.string(),
     stack: z.array(z.string()),
     // Public URLs only. Private repos get a case study, never a dead GitHub link.
-    link: z.string().url().optional(),
-    repo: z.string().url().optional(),
+    link: z.url().optional(),
+    repo: z.url().optional(),
     // Path relative to the entry, resolved to an optimized asset at build time.
     // Entries without one render with no media column.
     cover: image().optional(),
@@ -57,7 +57,7 @@ const privacy = defineCollection({
     summary: z.string(),
     // Set when the policy lives on another domain. The entry then links out
     // and no page is generated for it here.
-    external: z.string().url().optional(),
+    external: z.url().optional(),
     draft: z.boolean().default(false),
   }),
 });
