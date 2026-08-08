@@ -202,7 +202,7 @@ p { max-width: 66ch; }
 
 /* The toggle shows the theme currently in effect: sun for light, moon for dark.
    Both icons ship and CSS picks one, so the correct icon is right on first
-   paint — a JS swap would flash the wrong one. Mirrors the token cascade:
+   paint. A JS swap would flash the wrong one. Mirrors the token cascade:
    OS preference, then an explicit choice overriding it in both directions. */
 .theme-toggle { display: flex; align-items: center; }
 .theme-toggle svg { display: block; }
@@ -234,7 +234,6 @@ p { max-width: 66ch; }
   align-items: start;
   padding: 1.25rem 0;
   border-top: 1px solid var(--rule-soft);
-  text-decoration: none;
 }
 .project:first-child { border-top: 0; }
 
@@ -253,8 +252,12 @@ p { max-width: 66ch; }
   gap: 1.5rem;
   max-width: 66ch;
 }
-a.project:hover h3 { color: var(--accent); }
-.project h3 { transition: color 0.15s ease; }
+.phead h3 a {
+  text-decoration: none;
+  text-underline-offset: 4px;
+  transition: color 0.15s ease;
+}
+.phead h3 a:hover { color: var(--accent); text-decoration: underline; }
 .project p { margin-top: 0.3rem; color: var(--ink-2); font-size: var(--fs-sm); }
 
 .tags {
