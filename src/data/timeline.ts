@@ -76,7 +76,7 @@ export const timeline: Entry[] = [
   },
   {
     when: '2024',
-    what: 'Ruby on Rails · AWS · Stripe · PostHog · BigQuery · Go',
+    what: 'Ruby on Rails · PHP · AWS · Stripe · Amplitude · PostHog · BigQuery · Go',
     kind: 'Stack',
     type: 'stack',
   },
@@ -129,7 +129,7 @@ export const timeline: Entry[] = [
   },
   {
     when: '2021',
-    what: 'TypeScript · React · Next.js · Kubernetes · Docker',
+    what: 'TypeScript · React · Next.js · Angular · Kubernetes · Docker',
     kind: 'Stack',
     type: 'stack',
   },
