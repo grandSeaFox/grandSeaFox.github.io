@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -10,8 +11,9 @@ interface Props {
 
 const { projects, linked = false } = Astro.props;
 
-// Resolve parent ids to titles so a relation renders as a name, not a slug.
-const titles = new Map(projects.map((p) => [p.id, p.data.title]));
+// Resolve parent ids against every project, not just the ones in this list —
+// a parent often sits in a different section from its child.
+const titles = new Map((await getCollection('projects')).map((p) => [p.id, p.data.title]));
 
 // Only claim an ongoing range when there is genuinely no end date and the work
 // is still live. Status is a separate signal and renders as its own chip.

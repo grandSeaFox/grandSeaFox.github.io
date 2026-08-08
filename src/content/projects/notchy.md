@@ -1,7 +1,7 @@
 ---
 title: Notchy
 start: "2026-04"
-summary: A native macOS utility in Swift and SwiftUI.
+summary: A small macOS app, written in Swift.
 stack: [Swift, SwiftUI, XCTest]
 order: 7
 ---

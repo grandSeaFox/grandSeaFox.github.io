@@ -4,7 +4,7 @@ start: "2019-06"
 end: "2022-09"
 status: Retired
 summary: >-
-  Notified lawyers when something changed on one of their cases. Ran in
+  Told lawyers when something changed on one of their cases. It ran in
   production for three years at melius.pt.
 stack: [Angular 8, Node.js, PostgreSQL, Heroku]
 cover: ../../assets/projects/melius.jpg

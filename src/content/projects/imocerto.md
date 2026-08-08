@@ -3,10 +3,10 @@ title: ImoCerto
 start: "2025"
 status: Paused
 summary: >-
-  A property portal for the Portuguese market, in the mould of Idealista.
-  Auction, sale and rental listings with location search, a clustered map of the
-  whole country, saved favourites, alerts by email, and a back office for
-  managing what gets published.
+  A property site for Portugal, along the lines of Idealista. You can search
+  auctions, sales and rentals by location, see them on a map, save the ones you
+  like and get an email when something new matches. Staff manage listings from a
+  back office.
 stack: [Next.js, Hono, TypeScript, Drizzle, PostgreSQL, Socket.IO, AWS S3, Cheerio]
 cover: ../../assets/projects/imocerto.webp
 coverAlt: The ImoCerto auction search, with listing cards beside a clustered map of Portugal
@@ -14,9 +14,9 @@ featured: true
 order: 4
 ---
 
-Over 20,000 properties published. Most of the work went into ingestion and
-search: pulling listings from public auction sources on a schedule, then keeping
-them current and findable.
+It published over 20,000 properties. A scheduled job pulled listings from
+public auction sites, tidied them up and indexed them. Keeping that many
+listings current was most of the work.
 
 <!-- TODO: case study. Worth covering — the ingestion schedule, how listings
      were deduplicated across sources, and what search over 20k rows needed. -->

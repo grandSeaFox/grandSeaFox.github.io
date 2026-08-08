@@ -4,9 +4,10 @@ role: Co-founder
 start: "2026-06"
 status: Internal beta
 summary: >-
-  A bouldering app for iOS and Android. A map of areas and routes that keeps
-  working offline at the crag, send logging with grade confirmation, route
-  photos, XP, leaderboards and achievements.
+  A bouldering app for iOS and Android. The map of areas and routes works
+  offline, which is the point — most crags have no signal. You log your sends,
+  confirm the grade and add photos, and there's XP, leaderboards and
+  achievements on top.
 stack: [React Native, Expo, TypeScript, SQLite, Supabase, MapLibre, Cloudflare]
 link: https://betterbeta.io
 cover: ../../assets/projects/better-beta.webp
