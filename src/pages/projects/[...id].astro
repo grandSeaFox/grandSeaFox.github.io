@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects', (p) => !p.data.draft);
+  return projects.map((project) => ({ params: { id: project.id }, props: { project } }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+
+const year = (v: string) => v.slice(0, 4);
+const span = project.data.end
+  ? `${year(project.data.start)}–${year(project.data.end)}`
+  : year(project.data.start);
+---
+
+<Base title={`${project.data.title} | Gonçalo Raposeiro`} description={project.data.summary} section="projects">
+  <section class="band">
+    <div class="wrap row">
+      <div class="label">{span}</div>
+      <div>
+        <h2>
+          {project.data.title}
+          {project.data.role && <span class="role">{project.data.role}</span>}
+        </h2>
+        <p class="lede">{project.data.summary}</p>
+        <div class="tags">{project.data.stack.join(' · ')}</div>
+        {project.data.link && (
+          <div class="tags">
+            <a href={project.data.link} target="_blank" rel="noopener">{project.data.link.replace(/^https?:\/\//, '')} ↗</a>
+          </div>
+        )}
+        {project.data.cover && (
+          <figure class="shot" style="margin-top:1.5rem; max-width:640px">
+            <Image src={project.data.cover} alt={project.data.coverAlt ?? ''} widths={[640, 1280]} sizes="(max-width: 700px) 100vw, 640px" />
+            {project.data.coverNote && <figcaption>{project.data.coverNote}</figcaption>}
+          </figure>
+        )}
+        <div class="prose" style="margin-top:1.5rem"><Content /></div>
+      </div>
+    </div>
+  </section>
+</Base>

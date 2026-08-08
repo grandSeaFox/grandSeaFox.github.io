@@ -1,0 +1,66 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  projects: CollectionEntry<'projects'>[];
+  /** Link each title to its case study. Off until case studies exist. */
+  linked?: boolean;
+}
+
+const { projects, linked = false } = Astro.props;
+
+// Resolve parent ids against every project, not just the ones in this list.
+// A parent often sits in a different section from its child.
+const titles = new Map((await getCollection('projects')).map((p) => [p.id, p.data.title]));
+
+// Only claim an ongoing range when there is genuinely no end date and the work
+// is still live. Status is a separate signal and renders as its own chip.
+function span(entry: CollectionEntry<'projects'>) {
+  const { start, end } = entry.data;
+  const year = (v: string) => v.slice(0, 4);
+  return end ? `${year(start)}–${year(end)}` : year(start);
+}
+---
+
+<div class="projects">
+  {projects.map((project) => (
+    /*
+      The card is never itself an anchor. A project can carry an outbound link,
+      and a browser closes an outer <a> the moment it meets an inner one, which
+      threw everything after that link out of the card's grid. The title is the
+      link instead.
+    */
+    <article class:list={['project', { 'has-shot': project.data.cover }]}>
+      <div class="pbody">
+        <div class="phead">
+          <h3>
+            {linked ? <a href={`/projects/${project.id}/`}>{project.data.title}</a> : project.data.title}
+            {project.data.role && <span class="role">{project.data.role}</span>}
+            {project.data.status && <span class="chip pending">{project.data.status}</span>}
+          </h3>
+          <span class="year">{span(project)}</span>
+        </div>
+        <p>{project.data.summary}</p>
+        {project.data.parent && titles.has(project.data.parent) && (
+          <div class="tags">Grew out of {titles.get(project.data.parent)}</div>
+        )}
+        <div class="tags">{project.data.stack.join(' · ')}</div>
+        {project.data.link && (
+          <div class="tags">
+            <a href={project.data.link} target="_blank" rel="noopener">
+              {project.data.link.replace(/^https?:\/\//, '')} ↗
+            </a>
+          </div>
+        )}
+      </div>
+      {project.data.cover && (
+        <figure class="shot">
+          <Image src={project.data.cover} alt={project.data.coverAlt ?? ''} widths={[220, 440]} sizes="220px" loading="lazy" />
+          {project.data.coverNote && <figcaption>{project.data.coverNote}</figcaption>}
+        </figure>
+      )}
+    </article>
+  ))}
+</div>

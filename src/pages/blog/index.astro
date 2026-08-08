@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const posts = (await getCollection('blog', (p) => !p.data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<Base
+  title="Blog | Gonçalo Raposeiro"
+  description="Notes on emulation, growth engineering, and things that turned out harder than expected."
+  section="blog"
+>
+  <section class="band">
+    <div class="wrap row">
+      <div class="label">Writing</div>
+      <div>
+        <h2>Blog <span class="chip pending">Work in progress</span></h2>
+        <p>Notes on emulation, growth engineering, and things that turned out harder than expected.
+          Nothing published yet.</p>
+
+        {posts.length === 0 ? (
+          <div class="notice">
+            <div class="label">Work in progress</div>
+            <p class="small" style="margin-top:0.4rem">
+              First posts are being written. Check back, or subscribe to the
+              <a href="/rss.xml">feed</a>.
+            </p>
+          </div>
+        ) : (
+          <div class="posts">
+            {posts.map((post) => (
+              <article class="post">
+                <div class="meta">
+                  {post.data.date.toISOString().slice(0, 10)}
+                  {post.data.tags.length > 0 && ` · ${post.data.tags.join(', ')}`}
+                </div>
+                <h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
+                <p>{post.data.summary}</p>
+              </article>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+</Base>

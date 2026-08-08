@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const policies = (await getCollection('privacy', (p) => !p.data.draft)).sort((a, b) =>
+  a.data.app.localeCompare(b.data.app),
+);
+const pending = (await getCollection('privacy', (p) => p.data.draft)).map((p) => p.data.app);
+---
+
+<Base
+  title="Privacy policies | Gonçalo Raposeiro"
+  description="Privacy policies for apps I ship."
+  section="privacy"
+>
+  <section class="band">
+    <div class="wrap row">
+      <div class="label">Legal</div>
+      <div>
+        <h2>Privacy policies</h2>
+        <p>
+          Privacy policies for the apps I ship. Google Play needs a reachable URL on every
+          listing, so this is where they are collected.
+        </p>
+
+        {policies.length > 0 && (
+          <div class="projects" style="margin-top:1.5rem">
+            {policies.map((policy) => (
+              <a
+                class="project"
+                href={policy.data.external ?? `/privacy/${policy.id}/`}
+                target={policy.data.external ? '_blank' : undefined}
+                rel={policy.data.external ? 'noopener' : undefined}
+              >
+                <div class="phead">
+                  <h3>{policy.data.app}</h3>
+                  <span class="year">
+                    {policy.data.external
+                      ? `${policy.data.external.replace(/^https?:\/\//, '')} ↗`
+                      : policy.data.updated?.toISOString().slice(0, 10)}
+                  </span>
+                </div>
+                <p>{policy.data.platforms.join(' · ')}</p>
+              </a>
+            ))}
+          </div>
+        )}
+
+        {pending.length > 0 && (
+          <div class="notice">
+            <div class="label">Not published yet</div>
+            <p class="small" style="margin-top:0.4rem">
+              {pending.join(', ')}. Held as a draft until the facts are confirmed.
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+</Base>

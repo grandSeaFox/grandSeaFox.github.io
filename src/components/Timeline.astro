@@ -1,0 +1,47 @@
+---
+import { timeline } from '../data/timeline';
+
+const filters = [
+  { key: 'all', label: 'All' },
+  { key: 'work', label: 'Work' },
+  { key: 'education', label: 'Education' },
+  { key: 'project', label: 'Projects' },
+  { key: 'stack', label: 'Stack' },
+];
+---
+
+<div class="chips" role="group" aria-label="Filter timeline">
+  {filters.map((f, i) => (
+    <button type="button" data-filter={f.key} aria-pressed={i === 0 ? 'true' : 'false'}>{f.label}</button>
+  ))}
+</div>
+
+<ul class="tl" id="timeline">
+  {timeline.map((entry) => (
+    <li data-type={entry.type}>
+      <div class="when">{entry.when}</div>
+      <div class="what">{entry.what} <span class="kind">{entry.kind}</span></div>
+      {entry.where && <div class="where">{entry.where}</div>}
+      {entry.bullets && (
+        <ul>{entry.bullets.map((b) => <li>{b}</li>)}</ul>
+      )}
+    </li>
+  ))}
+</ul>
+
+<script>
+  const chips = document.querySelectorAll<HTMLButtonElement>('.chips button');
+  const entries = document.querySelectorAll<HTMLLIElement>('#timeline > li');
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const filter = chip.dataset.filter;
+      chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+      entries.forEach((li) => {
+        const type = li.dataset.type;
+        // The between-roles entry belongs with Work. It is what filled the gap.
+        li.hidden = !(filter === 'all' || type === filter || (filter === 'work' && type === 'gap'));
+      });
+    });
+  });
+</script>

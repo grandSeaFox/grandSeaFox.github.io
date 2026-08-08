@@ -1,0 +1,135 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ProjectList from '../components/ProjectList.astro';
+import Timeline from '../components/Timeline.astro';
+
+const projects = (await getCollection('projects', (p) => !p.data.draft)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const featured = projects.filter((p) => p.data.featured);
+const rest = projects.filter((p) => !p.data.featured);
+
+const posts = (await getCollection('blog', (p) => !p.data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const oss = [
+  { repo: 'react_virtualized_timeline', blurb: 'Virtualised timeline component' },
+  { repo: 'react-magic-dropdown-button', blurb: 'Dropdown button component' },
+  { repo: 'performance_test_bun_hono-node_express', blurb: 'Bun + Hono vs Node + Express' },
+  { repo: 'nextjs-14-onboarding', blurb: 'Next.js 14 walkthrough' },
+];
+---
+
+<Base
+  title="Gonçalo Raposeiro, Software Engineer"
+  description="Senior Software Engineer in Lisbon. Co-founder of Better Beta. Wrote a Game Boy Advance emulator from scratch in Rust."
+  section="home"
+>
+  <section class="band">
+    <div class="wrap" style="padding-block: clamp(3rem, 9vw, 6rem)">
+      <div class="label">Portfolio</div>
+      <h1 style="font-size: clamp(1.9rem, 5.2vw, 3.1rem); letter-spacing: -0.03em; margin: 0.9rem 0 1.1rem">
+        Senior Software Engineer in Lisbon.
+        <span style="color: var(--accent)">I build products, and I write the systems underneath them.</span>
+      </h1>
+      <p class="lede">
+        I'm a senior engineer at Park, working across React, Rails and TypeScript, and I run the
+        analytics and A/B tests that tell us whether a feature worked. I also co-founded Better
+        Beta, a bouldering app. In my own time I wrote a Game Boy Advance emulator in Rust.
+      </p>
+      <div class="facts">
+        <span><b>9 yrs</b> shipping</span>
+        <span><b>TypeScript</b> · <b>Ruby</b> · <b>Java</b></span>
+        <span><b>C2</b> Portuguese and English</span>
+        <span><b>B2</b> Spanish</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap row">
+      <div class="label"><span class="idx">01</span> Selected work</div>
+      <div>
+        <h2>Projects</h2>
+        <p class="small">
+          Most of these repos are private, so the links go to write-ups here instead of GitHub.
+        </p>
+        <ProjectList projects={featured} linked />
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap row">
+      <div class="label"><span class="idx">02</span> Also built</div>
+      <div>
+        <ProjectList projects={rest} linked />
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap row">
+      <div class="label"><span class="idx">03</span> Timeline</div>
+      <div>
+        <h2>Nine years, in order</h2>
+        <p class="small">
+          Jobs, education and projects in one list, because they overlapped.
+        </p>
+        <Timeline />
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap row">
+      <div class="label"><span class="idx">04</span> Open source</div>
+      <div>
+        <h2>Public repositories</h2>
+        <div class="grid-cards">
+          {oss.map((item) => (
+            <a href={`https://github.com/grandSeaFox/${item.repo}`} target="_blank" rel="noopener">
+              <code>{item.repo}</code>
+              <span class="small">{item.blurb}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {posts.length > 0 && (
+    <section class="band">
+      <div class="wrap row">
+        <div class="label"><span class="idx">05</span> Writing</div>
+        <div>
+          <h2>Latest posts</h2>
+          <div class="posts">
+            {posts.slice(0, 3).map((post) => (
+              <article class="post">
+                <div class="meta">{post.data.date.toISOString().slice(0, 10)}</div>
+                <h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
+                <p>{post.data.summary}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="band">
+    <div class="wrap row">
+      <div class="label">Contact</div>
+      <div>
+        <h2>Get in touch</h2>
+        <p>Happy to talk about work, or about anything on this page.</p>
+        <div class="facts">
+          <span><b>goncalo.raposeiro@outlook.com</b></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
