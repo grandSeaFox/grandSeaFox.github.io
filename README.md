@@ -37,3 +37,14 @@ s(f).resize(180,180).flatten({background:'#fff'}).png().toFile('public/apple-tou
 
 The Apple one is flattened onto white because iOS composites home-screen icons
 on black, which would swallow a dark outline.
+
+## Analytics
+
+Google Analytics 4, tag in `src/layouts/Base.astro`, so every route is covered
+without touching a page. The measurement ID is committed rather than injected
+at deploy time, because it is visible in the page source of every site that
+uses GA and there is nothing to protect.
+
+Nothing is sent from `npm run dev`, which never emits the tag, or from
+`npm run preview`, where the tag is present but a hostname check stops it
+firing anywhere other than the live domain.
