@@ -11,8 +11,6 @@ interface Props {
 const { title, description, section = 'home' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 
-// Public write-only key. Absent in local dev and in forks, in which case no
-// analytics script is emitted at all. The page must never depend on it.
 // GA4 measurement ID. It ships in the page source on every site that uses it,
 // so there is nothing to hide and nothing to configure at deploy time.
 const GA_ID = 'G-G1SQ98TEYH';
@@ -112,7 +110,7 @@ const nav = [
         <span>
           <a href="mailto:goncalo.raposeiro@outlook.com">Email</a> ·
           <a href="https://github.com/grandSeaFox" rel="me noopener" target="_blank">GitHub</a> ·
-          <a href="https://www.linkedin.com/in/gon%C3%A7alo-raposeiro/" rel="me noopener" target="_blank">LinkedIn</a> ·
+          <a href="https://www.linkedin.com/in/goncalo-raposeiro/" rel="me noopener" target="_blank">LinkedIn</a> ·
           <a href="/rss.xml">RSS</a>
         </span>
       </div>
