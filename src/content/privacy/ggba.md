@@ -1,7 +1,7 @@
 ---
 app: GGBA
 platforms: [Android]
-updated: 2026-08-08
+updated: 2026-08-18
 summary: GGBA collects no personal data. It has no internet permission and sends nothing anywhere.
 draft: false
 ---
@@ -60,4 +60,4 @@ If this policy changes, the date at the top of this page changes with it.
 
 ## Contact
 
-Questions about this policy: [goncalo.raposeiro@outlook.com](mailto:goncalo.raposeiro@outlook.com)
+Questions about this policy: [bgraposeiro@gmail.com](mailto:bgraposeiro@gmail.com)
