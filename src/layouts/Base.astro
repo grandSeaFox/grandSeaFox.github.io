@@ -12,7 +12,9 @@ const { title, description, section = 'home' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 
 // GA4 measurement ID. It ships in the page source on every site that uses it,
-// so there is nothing to hide and nothing to configure at deploy time.
+// so there is nothing to hide and nothing to configure at deploy time. The
+// privacy pages are excluded below: a policy that says an app tracks nothing
+// should not itself be running a tracker.
 const GA_ID = 'G-G1SQ98TEYH';
 const GA_HOST = 'grandseafox.github.io';
 
@@ -59,7 +61,7 @@ const nav = [
       })();
     </script>
 
-    {import.meta.env.PROD && (
+    {import.meta.env.PROD && section !== 'privacy' && (
       <script is:inline define:vars={{ GA_ID, GA_HOST }}>
         // Dev builds never emit this, but `astro preview` does, so the hostname
         // check keeps local previews out of the real property. Loading gtag
