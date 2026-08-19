@@ -38,7 +38,7 @@ function span(entry: CollectionEntry<'projects'>) {
           <h3>
             {linked ? <a href={`/projects/${project.id}/`}>{project.data.title}</a> : project.data.title}
             {project.data.role && <span class="role">{project.data.role}</span>}
-            {project.data.status && <span class="chip pending">{project.data.status}</span>}
+            {project.data.status?.map((s) => <span class="chip pending">{s}</span>)}
           </h3>
           <span class="year">{span(project)}</span>
         </div>

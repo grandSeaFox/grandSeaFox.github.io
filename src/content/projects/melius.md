@@ -2,7 +2,7 @@
 title: Melius
 start: "2019-06"
 end: "2022-09"
-status: Retired
+status: [Retired]
 summary: >-
   Told lawyers when something changed on one of their cases. It watched the
   court records, worked out what had moved and sent the notification, and the

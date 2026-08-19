@@ -14,8 +14,9 @@ const projects = defineCollection({
     role: z.string().optional(),
     start: z.string(),
     end: z.string().optional(),
-    // Shown as a chip: "Internal beta", "In production", "Archived".
-    status: z.string().optional(),
+    // Shown as chips: "Internal beta", "Paused", "Android shipped". A list,
+    // because one project can be at different stages on different platforms.
+    status: z.array(z.string()).optional(),
     summary: z.string(),
     stack: z.array(z.string()),
     // Public URLs only. Private repos get a case study, never a dead GitHub link.

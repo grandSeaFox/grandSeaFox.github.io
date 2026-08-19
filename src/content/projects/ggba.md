@@ -1,7 +1,7 @@
 ---
 title: GGBA
 start: "2026-08"
-status: Android shipped
+status: [Android shipped, macOS ready, iOS ready]
 summary: >-
   A Game Boy Advance emulator written from scratch in Rust, with an Android app
   on top. No third-party emulator code and no BIOS image. The CPU is an ARM7TDMI
