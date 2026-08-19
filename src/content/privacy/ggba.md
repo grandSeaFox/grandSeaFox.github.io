@@ -1,62 +1,69 @@
 ---
 app: GGBA
 platforms: [Android]
-updated: 2026-08-18
+updated: 2026-08-19
 summary: GGBA collects no personal data. It has no internet permission and sends nothing anywhere.
 draft: false
 ---
 
-GGBA does not collect, store or share any personal data. It has no internet
-permission, so it cannot send anything anywhere even if it wanted to.
+GGBA does not collect, transmit, or share any personal data. This is not a
+policy commitment layered on top of an app that could do otherwise. The app
+declares no Android permissions at all and contains no networking code.
 
-This policy covers the GGBA Android app, published as `dev.goncalo.ggba`.
+This policy covers the GGBA Android app, published as `dev.grandseafox.ggba`.
+
+## What GGBA does not do
+
+- It does not collect personal information of any kind.
+- It does not contain analytics, crash reporting, advertising, or tracking of
+  any kind.
+- It does not request the internet permission, and cannot make network requests.
+- It does not read your files, your contacts, your location, or your device
+  identifiers.
+- It does not share anything with third parties, because it has nothing to
+  share and no way to send it.
 
 ## What stays on your device
 
-The app writes two kinds of file, both into its own private storage:
+**Game files.** You choose a game file with Android's own document picker. The
+system grants GGBA access to that single file and nothing else. The app never
+requests broad storage access and cannot browse your device.
 
-- **Game saves.** The save data a game would normally write to its cartridge.
-- **Save states.** Snapshots of the emulator you create yourself.
+**Saves and save states.** In-game saves and save states are written to GGBA's
+private internal storage, which no other app can read. They are removed when you
+uninstall GGBA.
 
-Only GGBA can read these. They are not uploaded, and nobody else can see them.
+**Settings.** Your preferences (haptics, control opacity, and similar) are
+stored on the device only.
 
-## Game files
+None of this is sent to the developer or to any third party.
 
-You open a game file by picking it yourself through Android's file picker. That
-grants the app access to the one file you chose and nothing else. The app never
-asks for general storage access, and it does not scan your device for files.
+## Android backups
 
-## What the app does not do
-
-- No analytics, telemetry or usage tracking.
-- No crash reporting.
-- No advertising and no ad identifiers.
-- No accounts and no sign-in.
-- No third-party SDKs that collect data.
-- No network requests of any kind. The app declares no permissions at all,
-  including no internet permission.
-
-## Backups
-
-Android's own backup feature is enabled. If you have device backup turned on in
-your Google account settings, Android may copy the app's save files to your
-personal Google Drive as part of the normal system backup. This happens between
-your phone and your own Google account. The developer has no access to it, and
-you can turn it off in your device's backup settings.
-
-## Deleting your data
-
-Uninstalling the app removes its save files from your device. If you have
-Android backup switched on, delete the app's backup from your Google account to
-remove the copy stored there.
+Android's own backup feature is enabled for GGBA. If you have device backup
+turned on in your Google account settings, Android may copy the app's save files
+to your personal Google Drive as part of the normal system backup. That transfer
+happens between your phone and your own Google account. The developer has no
+access to it, and you can turn it off in your device's backup settings. To
+remove a copy already stored there, delete the app's backup from your Google
+account.
 
 ## Children
 
-The app collects nothing from anyone, of any age.
+GGBA is listed for users aged 18 and over and is not directed at children.
+Nothing in this policy depends on that, though: the app collects nothing from
+anyone, of any age, because it has no way to collect anything at all.
+
+## Content you supply
+
+GGBA ships with no games and no BIOS image. What you load into it is yours to
+supply and yours to be responsible for.
 
 ## Changes
 
-If this policy changes, the date at the top of this page changes with it.
+If this policy ever changes, the revised version will be posted here with a new
+date. Any change that affected data handling would also require a new app
+release, since the current app has no capability to collect anything.
 
 ## Contact
 
