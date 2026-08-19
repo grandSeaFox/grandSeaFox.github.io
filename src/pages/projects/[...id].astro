@@ -11,6 +11,11 @@ export async function getStaticPaths() {
 const { project } = Astro.props;
 const { Content } = await render(project);
 
+// A project and its policy share an id, the same way `parent` points at another
+// project. Add a file to src/content/privacy/ named after the project and the
+// link appears here. Policies hosted elsewhere link straight out.
+const policy = (await getCollection('privacy', (p) => !p.data.draft)).find((p) => p.id === project.id);
+
 const year = (v: string) => v.slice(0, 4);
 const span = project.data.end
   ? `${year(project.data.start)}–${year(project.data.end)}`
@@ -31,6 +36,17 @@ const span = project.data.end
         {project.data.link && (
           <div class="tags">
             <a href={project.data.link} target="_blank" rel="noopener">{project.data.link.replace(/^https?:\/\//, '')} ↗</a>
+          </div>
+        )}
+        {policy && (
+          <div class="tags">
+            <a
+              href={policy.data.external ?? `/privacy/${policy.id}/`}
+              target={policy.data.external ? '_blank' : undefined}
+              rel={policy.data.external ? 'noopener' : undefined}
+            >
+              {policy.data.external ? 'Privacy policy ↗' : 'Privacy policy'}
+            </a>
           </div>
         )}
         {project.data.cover && (
