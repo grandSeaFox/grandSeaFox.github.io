@@ -17,6 +17,7 @@ npm run preview  # serve the build
 src/content/projects/   one Markdown file per project
 src/content/blog/       one file per post, draft: true keeps it unpublished
 src/content/privacy/    one file per app, or an external URL for policies hosted elsewhere
+                        name it after a project and that project links to it
 src/data/timeline.ts    the timeline
 src/pages/              routes
 src/styles/global.css   every design token
