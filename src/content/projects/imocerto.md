@@ -1,7 +1,7 @@
 ---
 title: ImoCerto
 start: "2025"
-status: Paused
+status: [Paused]
 summary: >-
   A property site for Portugal, along the lines of Idealista. You can search
   auctions, sales and rentals by location, see them on a map, save the ones you

@@ -2,7 +2,7 @@
 title: Better Beta
 role: Co-founder
 start: "2026-06"
-status: Internal beta
+status: [Internal beta]
 summary: >-
   A bouldering app for iOS and Android. The map of areas and routes works
   offline, which is the point, because most crags have no signal. You log your

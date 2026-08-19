@@ -255,6 +255,11 @@ p { max-width: 66ch; }
 /* Some lists make the whole row a link. Those must not underline wholesale. */
 a.project { text-decoration: none; }
 a.project:hover h3 { color: var(--accent); }
+/* Flex items refuse to shrink past their content by default, so a title with
+   several chips pushed the year off the right edge on a phone. Letting the
+   heading shrink makes the chips wrap onto a second line instead. */
+.phead h3 { min-width: 0; }
+
 .phead h3 a {
   text-decoration: none;
   text-underline-offset: 4px;
@@ -288,6 +293,9 @@ a.project:hover h3 { color: var(--accent); }
   margin-left: 0.5rem;
   vertical-align: middle;
   font-weight: 400;
+  /* A chip is one box. Without this a two-word chip breaks across lines on a
+     narrow screen and its border is left cut in half. */
+  white-space: nowrap;
 }
 .chip.pending { color: var(--live); }
 
